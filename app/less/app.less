@@ -1,0 +1,231 @@
+@import '../bower_components/makerstrap/less/makerstrap';
+
+// Font Awesome ---------------------------------------------------------------
+// Use http://fortawesome.github.io/Font-Awesome/cheatsheet/ as a guide
+@import "../bower_components/font-awesome/less/font-awesome";
+@fa-font-path: "/bower_components/font-awesome/fonts";
+
+input[type="checkbox"]:checked + .user-story-text {
+  text-decoration: line-through;
+}
+
+body {
+  //background: @brand-primary;
+}
+
+// Global helpers
+.text-monospace {
+  font-family: @font-family-monospace;
+}
+
+// Header
+header {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.feature-title {
+  font-weight: 200;
+  font-size: 60px;
+}
+
+.feature-due-date {
+  font-weight: 200;
+  color: #999;
+}
+
+/*********************************************************
+* Makerstrap overrides
+*/
+
+@link-color: #15A38D;
+@link-hover-color: darken(@link-color, 8%);
+@table-border-color: #E0EAF1;
+
+@badge-border-radius: 4px;
+
+
+/*********************************************************
+* Sidebar
+*/
+
+// Fixed sidebar
+@sidebar-width: 300px;
+
+// Container - offset for fixed sidebar
+@container-tablet:             ((720px + @grid-gutter-width) - @sidebar-width);
+@container-desktop:            ((940px + @grid-gutter-width) - @sidebar-width);
+@container-large-desktop:      ((1140px + @grid-gutter-width) - @sidebar-width);
+
+
+/*********************************************************
+* Structure
+*/
+
+// .wrapper {
+//   display: flex;
+//   align-items: stretch;
+// }
+
+.section-main {
+  overflow: auto;
+  min-width: 67%;
+}
+
+.section-sidebar,
+.sidebar-spacer {
+  float: left;
+  min-height: 1px;
+  .hidden-xs();
+  width: 33%;
+  max-width: @sidebar-width;
+}
+
+/*********************************************************
+* Sidebar
+*/
+
+.section-sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  overflow-y: auto;
+  background: #333;
+  display: none;
+}
+
+.section-sidebar-nav {
+  position: relative;
+  z-index: 1;
+
+  // Spacing
+  > li + li {
+    margin-top: 0;
+  }
+
+  // Each element, active states
+  > li {
+    transition: all 0.2s ease-in-out;
+    opacity: 0.5;
+    position: relative;
+
+    &:hover,
+    &.active {
+      opacity: 1;
+      background-color: #222;
+    }
+  }
+
+  &.unselected > li {
+    opacity: 0.85;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  // Links
+  > li > a {
+    padding: 15px;
+    color: #FFF;
+    //font-weight: 300;
+
+    &:hover {
+      color: #FFF;
+      background: none;
+    }
+  }
+
+  // Dates
+
+  .sidebar-date {
+    .pull-right;
+    .badge;
+    background: none;
+    color: fade(white, 90%);
+    border: 1px solid;
+    font-weight: normal;
+    font-size: 10px;
+    padding: 5px 8px;
+    margin-top: -2px;
+  }
+
+  .active .sidebar-date {
+    background: @brand-primary;
+    border-color: lighten(@brand-primary, 10%);
+  }
+
+}
+
+
+/*********************************************************
+* Bug table
+*/
+
+.bugs-loading {
+  text-align: center;
+  font-weight: 200;
+  padding: 40px;
+  margin-top: 20px;
+  font-size: 70px;
+  color: @brand-primary;
+  border: 1px solid #DDD;
+  border-radius: 4px;
+}
+
+.bug-resolved {
+  color: fade(@text-color, 40%);
+  a {
+    color: inherit;
+    text-decoration: line-through;
+  }
+}
+
+.table.bug-table {
+  font-size: 13px;
+  margin: 20px 0;
+  background: white;
+  // tr:nth-child(odd) {
+  //   background: lighten(@table-border-color, 7%);
+  // }
+  td, th {
+    padding: 15px;
+  }
+  td:first-child {
+    box-shadow: inset 1px 0 @table-border-color;
+  }
+  td:last-child {
+    box-shadow: inset -1px 0 @table-border-color;
+  }
+  tbody > tr:last-child {
+    border-bottom: 1px solid @table-border-color;
+  }
+  th {
+    white-space: nowrap;
+    background: #333;
+    border-bottom: 2px solid black;
+    color: white;
+    font-weight: normal;
+    border-top: none;
+    cursor: pointer;
+
+    padding-right: 30px;
+
+    .fa {
+      opacity: 0.3;
+      transition: all 0.2s ease-in;
+      margin-right: 0.2em;
+    }
+    &:first-child {
+      border-top-left-radius: 4px;
+    }
+    &:last-child {
+      border-top-right-radius: 4px;
+    }
+    &:hover {
+      .fa {
+        opacity: 1;
+      }
+    }
+  } //th
+}
