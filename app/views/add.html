@@ -1,52 +1,54 @@
-<header>
-  <h1>Add milestone</h1>
-</header>
+<div class="container">
+  <header>
+    <h1>Add milestone</h1>
+  </header>
 
-<form class="form">
+  <form class="form">
 
-  <div class="row">
+    <div class="row">
 
-    <div class="col-sm-6">
-      <div class="form-group">
-        <label>Title</label>
-        <input class="form-control">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label>Title</label>
+          <input class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Whiteboard search</label>
+          <input class="form-control">
+          <div class="help-block">eg. events2, mvp</div>
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <textarea class="form-control"></textarea>
+        </div>
       </div>
-      <div class="form-group">
-        <label>Whiteboard search</label>
-        <input class="form-control">
-        <div class="help-block">eg. events2, mvp</div>
-      </div>
-      <div class="form-group">
-        <label>Description</label>
-        <textarea class="form-control"></textarea>
+
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label>Due date</label>
+
+          <div class="input-group">
+             <input
+              type="text"
+              class="form-control"
+              datepicker-popup="longDate"
+              ng-model="dt"
+              is-open="opened"
+              min="minDate"
+              max="'2015-06-22'"
+              datepicker-options="dateOptions"
+              close-text="Close">
+             <span class="input-group-btn">
+               <button class="btn btn-default" ng-click="open($event)"><i class="fa fa-calendar"></i></button>
+             </span>
+           </div>
+
+        </div>
       </div>
     </div>
 
-    <div class="col-sm-6">
-      <div class="form-group">
-        <label>Due date</label>
-
-        <div class="input-group">
-           <input
-            type="text"
-            class="form-control"
-            datepicker-popup="longDate"
-            ng-model="dt"
-            is-open="opened"
-            min="minDate"
-            max="'2015-06-22'"
-            datepicker-options="dateOptions"
-            close-text="Close">
-           <span class="input-group-btn">
-             <button class="btn btn-default" ng-click="open($event)"><i class="fa fa-calendar"></i></button>
-           </span>
-         </div>
-
-      </div>
+    <div class="form-group">
+      <button class="btn btn-primary">Create milestone</button>
     </div>
-  </div>
-
-  <div class="form-group">
-    <button class="btn btn-primary">Create milestone</button>
-  </div>
-</form>
+  </form>
+</div>

@@ -1,104 +1,92 @@
-<header>
-  <h1 class="feature-title">{{m.title}}</h1>
-  <h3 class="feature-due-date">Due {{m.dueDate | timeago}}</h3>
-</header>
+<div class="container-fluid">
+  <header>
+    <h1 class="feature-title">{{m.title}}</h1>
+    <h3 class="feature-due-date">Due {{m.dueDate | timeago}} <a href="{{newBugUrl}}" class="btn btn-primary btn-add-bug" target="_blank">Add bug</a></h3>
 
-<div class-"row">
-
-  <div class="user-story col-lg-5">
-
-    <div class="row">
-      <div class="col-xs-12">
-        <h3>User Stories</h3>
+    <div class="progress progress-bugs">
+      <div class="progress-bar" role="progressbar" aria-valuenow="{{complete.percentage}}" aria-valuemin="0" aria-valuemax="100" style="width: {{complete.percentage}}%;">
+        <span>{{complete.resolved}}/{{complete.total}}</span>
       </div>
     </div>
 
-    <table class="table bug-table table-user-stories">
-      <thead>
-        <tr>
-          <th></th>
-          <th class="hidden-lg">User type</th>
-          <th>As a user, I can...</th>
-          <th>Bugs</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><div class="checkbox"><input type="checkbox" disabled></div></td>
-          <td class="hidden-lg">
-            <select class="form-control">
-              <option>vistor</option>
-              <option>registered user</option>
-              <option>owner</option>
-            </select>
-          </td>
-          <td>
-            <input class="form-control">
-          </td>
-          <td>
-            <input class="form-control">
-          </td>
-        </tr>
-        <tr ng-repeat="story in userStories">
-          <td><input type="checkbox"></td>
-          <td class="hidden-lg">{{story.userType}}</td>
-          <td>{{story.action}}</td>
-          <td class="text-monospace">{{story.bugs}}</td>
-       <!--    <td>
-            <div class="user-story-options" ng-show="menuToggle{{$index}}">
-              <button type="button" class="btn btn-link"><i fa="pencil"></i></button>
-              <button type="button" class="btn btn-link"><i fa="trash-o"></i></button>
-            </div>
-            <a ng-click="menuToggle0 = !menuToggle + $index"><span class="fa fa-2x fa-gear"></span></a>
-          </td> -->
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  </header>
 
-  <div class="bugz col-lg-7">
+  <div class-"row">
 
-    <div class="row">
-      <div class="col-sm-3">
-        <h3>Bugs</h3>
-      </div>
-      <div class="col-sm-3">
-        <a href="{{newBugUrl}}" class="btn btn-primary" target="_blank">Add bug</a>
-      </div>
-      <div class="col-sm-6">
-        <div class="progress">
-          <div class="progress-bar" role="progressbar" aria-valuenow="{{complete.percentage}}" aria-valuemin="0" aria-valuemax="100" style="width: {{complete.percentage}}%;">
-            <span>{{complete.resolved}}/{{complete.total}}</span>
-          </div>
-        </div>
-      </div>
+    <div class="user-story col-lg-5">
+
+      <table class="table bug-table table-user-stories">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="hidden-lg">User type</th>
+            <th>As a user, I can...</th>
+            <th>Bugs</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="checkbox"><input type="checkbox" disabled></div></td>
+            <td class="hidden-lg">
+              <select class="form-control">
+                <option>vistor</option>
+                <option>registered user</option>
+                <option>owner</option>
+              </select>
+            </td>
+            <td>
+              <input class="form-control">
+            </td>
+            <td>
+              <input class="form-control">
+            </td>
+          </tr>
+          <tr ng-repeat="story in userStories">
+            <td><input type="checkbox"></td>
+            <td class="hidden-lg">{{story.userType}}</td>
+            <td>{{story.action}}</td>
+            <td class="text-monospace">{{story.bugs}}</td>
+         <!--    <td>
+              <div class="user-story-options" ng-show="menuToggle{{$index}}">
+                <button type="button" class="btn btn-link"><i fa="pencil"></i></button>
+                <button type="button" class="btn btn-link"><i fa="trash-o"></i></button>
+              </div>
+              <a ng-click="menuToggle0 = !menuToggle + $index"><span class="fa fa-2x fa-gear"></span></a>
+            </td> -->
+          </tr>
+        </tbody>
+      </table>
     </div>
 
-    <div class="bugs-loading" ng-hide="bugs">
-      <span class="fa fa-cog fa-spin"></span><span class="sr-only">Loading bugs</span>
-    </div>
+    <div class="bugz col-lg-7">
 
-    <table ng-show="bugs" class="table bug-table">
-      <thead>
-        <tr>
-          <th ng-repeat="field in fields" ng-click="setOrderBy(field.bz)">
-            <span class="fa fa-sort"></span> {{field.name}}
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="bug in bugs | orderBy:orderField:orderDir"
-            ng-class="{'bug-resolved': bug.resolution}">
-          <td>{{bug.last_change_time | timeago}}</td>
-          <td class="text-monospace"> <a href="https://bugzilla.mozilla.org/show_bug.cgi?id={{bug.id}}" target="_blank">#{{bug.id}}</a></td>
-          <td>
-            {{bug.summary}}
-          </td>
-          <td>{{bug.assigned_to_detail.real_name | nameFilter}}</td>
-          <td>{{bug.status}}</td>
-        </tr>
-      </tbody>
-    </table>
+      <div class="bugs-loading" ng-hide="bugs">
+        <span class="fa fa-cog fa-spin"></span><span class="sr-only">Loading bugs</span>
+      </div>
+
+      <table ng-show="bugs" class="table bug-table">
+        <thead>
+          <tr>
+            <th ng-repeat="field in fields" ng-click="setOrderBy(field.bz)">
+              <span class="fa fa-sort"></span> {{field.name}}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="bug in bugs | orderBy:orderField:orderDir"
+              ng-class="{'bug-resolved': bug.resolution}">
+            <td>{{bug.last_change_time | timeago}}</td>
+            <td class="text-monospace"> <a href="https://bugzilla.mozilla.org/show_bug.cgi?id={{bug.id}}" target="_blank">#{{bug.id}}</a></td>
+            <td>
+              {{bug.summary}}
+            </td>
+            <td>{{bug.assigned_to_detail.real_name | nameFilter}}</td>
+            <td>{{bug.status}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
 
   </div>
 
