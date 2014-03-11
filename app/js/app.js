@@ -16,6 +16,11 @@ angular.module('myApp', [
         controller: 'HomeCtrl'
       });
 
+      $routeProvider.when('/add', {
+        templateUrl: 'views/add.html',
+        controller: 'AddCtrl'
+      });
+
       $routeProvider.when('/milestone/:id', {
         templateUrl: 'views/home.html',
         controller: 'HomeCtrl'
@@ -54,6 +59,18 @@ angular.module('myApp', [
         },
         {
           id: 3,
+          title: 'Events Future',
+          dueDate: 'April 1 2014',
+          whiteboard: 'events2, future'
+        },
+        {
+          id: 4,
+          title: 'Webmaker.org March 14',
+          dueDate: 'March 14 2014',
+          whiteboard: 'webmaker.org, 2014-03-14'
+        },
+        {
+          id: 5,
           title: 'Login Phase 4',
           dueDate: 'March 7 2014',
           whiteboard: 'login2-phase4'

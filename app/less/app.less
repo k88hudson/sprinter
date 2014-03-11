@@ -5,12 +5,14 @@
 @import "../bower_components/font-awesome/less/font-awesome";
 @fa-font-path: "/bower_components/font-awesome/fonts";
 
+@import (less) '../bower_components/animate.css/animate.css';
+
 input[type="checkbox"]:checked + .user-story-text {
   text-decoration: line-through;
 }
 
-body {
-  //background: @brand-primary;
+html, body, .wrapper {
+ height: 100%;
 }
 
 // Global helpers
@@ -50,11 +52,12 @@ header {
 */
 
 // Fixed sidebar
-@sidebar-width: 300px;
+@sidebar-width: 250px;
 
 // Container - offset for fixed sidebar
 @container-tablet:             ((720px + @grid-gutter-width) - @sidebar-width);
 @container-desktop:            ((940px + @grid-gutter-width) - @sidebar-width);
+@container-large-desktop:      ((1140px + @grid-gutter-width) - @sidebar-width);
 @container-large-desktop:      ((1140px + @grid-gutter-width) - @sidebar-width);
 
 
@@ -70,6 +73,7 @@ header {
 .section-main {
   overflow: auto;
   min-width: 67%;
+  height: 100%;
 }
 
 .section-sidebar,
@@ -91,7 +95,6 @@ header {
   bottom: 0;
   overflow-y: auto;
   background: #333;
-  display: none;
 }
 
 .section-sidebar-nav {
@@ -157,6 +160,38 @@ header {
 
 }
 
+/*********************************************************
+* User story table
+*/
+
+.table.bug-table.table-user-stories {
+  tbody > tr > td:first-child {
+    vertical-align: middle;
+    position: relative;
+  }
+  th {
+    background: #FF6F69;
+    border-bottom: 2px solid darken(#FF6F69, 10%);
+  }
+}
+
+.user-story-options {
+  @h: @table-cell-padding * 2 + @input-height-base;
+  position: absolute;
+  right: 100%;
+  top: 0;
+  height: @h;
+  text-align: right;
+  white-space: nowrap;
+  background: @brand-primary;
+
+  .btn {
+    height: @h;
+    width: @h;
+    text-align: center;
+    color: white;
+  }
+}
 
 /*********************************************************
 * Bug table
@@ -211,7 +246,7 @@ header {
 
     padding-right: 30px;
 
-    .fa {
+    .fa-sort {
       opacity: 0.3;
       transition: all 0.2s ease-in;
       margin-right: 0.2em;
@@ -228,4 +263,21 @@ header {
       }
     }
   } //th
+}
+
+/*********************************************************
+* Angular UI overrides
+*/
+
+
+.calendar-picker td {
+  border: 1px solid #EEE;
+}
+
+.calendar-picker .btn-default {
+  border: none;
+}
+
+.calendar-picker .btn-default:hover {
+  background: #EEE;
 }

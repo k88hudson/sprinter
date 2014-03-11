@@ -21,9 +21,7 @@ module.exports = function (env) {
 
   // bz
   var bugzilla = bz.createClient();
-
   app.get('/bug', function (req, res, next) {
-    console.log(req.query);
     bugzilla.searchBugs(req.query, function(err, bugs) {
       if (err) {
         return next(err);

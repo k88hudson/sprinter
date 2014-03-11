@@ -7,4 +7,13 @@ angular.module('myApp.directives', [])
         elm.text(version);
       };
     }
-  ]);
+  ])
+  .directive('i', function () {
+    // Prevent default on all elements that have ngClick defined
+    return {
+      restrict: 'E',
+      link: function (scope, el, attrs) {
+        el.addClass('fa fa-' + attrs.fa);
+      }
+    };
+  });

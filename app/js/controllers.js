@@ -1,6 +1,24 @@
 // Controllers ----------------------------------------------------------------
 
 angular.module('myApp.controllers', [])
+  .controller('AddCtrl', ['$scope',
+    function($scope) {
+
+      $scope.open = function($event) {
+        $event.preventDefault();
+        $event.stopPropagation();
+        $scope.opened = true;
+      };
+
+      $scope.dt = new Date();
+      $scope.minDate = new Date();
+      $scope.dateOptions = {
+         'year-format': "'yy'",
+         'show-weeks': false
+       };
+
+    }
+  ])
   .controller('HomeCtrl', ['$scope', '$http', '$rootScope', '$routeParams',
 
     function($scope, $http, $rootScope, $routeParams) {
@@ -11,13 +29,21 @@ angular.module('myApp.controllers', [])
         '&status_whiteboard=' + encodeURIComponent($scope.m.whiteboard);
 
       $scope.bugs = [];
+      $scope.complete = {};
 
       $scope.userStories = [
         {
-          text: "A user should be able to blah"
+          userType: "vistor",
+          action: "understand what I can do on /events on first landing",
+          bugs: '42432, 23131'
         },
         {
-          text: "A user should be able to blah blah"
+          userType: "vistor",
+          action: "understand what I can do on /events on first landing"
+        },
+        {
+          userType: "vistor",
+          action: "understand what I can do on /events on first landing"
         }
       ];
 
@@ -67,9 +93,15 @@ angular.module('myApp.controllers', [])
         return bug.status === 'RESOLVED';
       }
 
-      $scope.complete = function() {
-        return Math.floor($scope.bugs.filter(isResolved).length / $scope.bugs.length * 100);
-      };
+      $scope.$watch('bugs', function() {
+        var bugsResolved = Math.floor($scope.bugs.filter(isResolved).length);
+        var totalBugs =  $scope.bugs.length;
+        $scope.complete = {
+          percentage:  (bugsResolved / totalBugs) * 100,
+          resolved: bugsResolved,
+          total: totalBugs
+        };
+      });
 
       $http({
           method: 'GET',
