@@ -9,6 +9,11 @@ module.exports = function (grunt) {
         options: {
           sourceMap: true
         }
+      },
+      production: {
+        files: {
+          'app/compiled/app.min.css': 'app/less/app.less'
+        }
       }
     },
     watch: {
@@ -67,6 +72,6 @@ module.exports = function (grunt) {
   grunt.registerTask('validate', ['jsbeautifier:validate', 'jshint']);
 
   // Heroku
-  grunt.registerTask('build', ['less']);
+  grunt.registerTask('build', ['less:production']);
 
 };
