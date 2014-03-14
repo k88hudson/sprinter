@@ -8,6 +8,14 @@ angular.module('myApp.directives', [])
       };
     }
   ])
+  .directive('row', function () {
+    return {
+      restrict: 'E',
+      link: function (scope, el, attrs) {
+        el.addClass('row');
+      }
+    };
+  })
   .directive('i', function () {
     // Prevent default on all elements that have ngClick defined
     return {

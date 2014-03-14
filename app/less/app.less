@@ -57,7 +57,7 @@ header {
 */
 
 // Fixed sidebar
-@sidebar-width: 250px;
+@sidebar-width: 300px;
 
 // Container - offset for fixed sidebar
 @container-tablet:             ((720px + @grid-gutter-width) - @sidebar-width);
@@ -169,39 +169,6 @@ header {
   margin: 30px auto 0;
   max-width: 350px;
   border-radius: 10px;
-}
-
-/*********************************************************
-* User story table
-*/
-
-.table.bug-table.table-user-stories {
-  tbody > tr > td:first-child {
-    vertical-align: middle;
-    position: relative;
-  }
-  th {
-    background: #FF6F69;
-    border-bottom: 2px solid darken(#FF6F69, 10%);
-  }
-}
-
-.user-story-options {
-  @h: @table-cell-padding * 2 + @input-height-base;
-  position: absolute;
-  right: 100%;
-  top: 0;
-  height: @h;
-  text-align: right;
-  white-space: nowrap;
-  background: @brand-primary;
-
-  .btn {
-    height: @h;
-    width: @h;
-    text-align: center;
-    color: white;
-  }
 }
 
 /*********************************************************

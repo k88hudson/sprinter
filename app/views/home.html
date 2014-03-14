@@ -11,55 +11,9 @@
 
   </header>
 
-  <div class-"row">
+  <row>
 
-    <div class="user-story col-lg-5">
-
-      <table class="table bug-table table-user-stories">
-        <thead>
-          <tr>
-            <th></th>
-            <th class="hidden-lg">User type</th>
-            <th>As a user, I can...</th>
-            <th>Bugs</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><div class="checkbox"><input type="checkbox" disabled></div></td>
-            <td class="hidden-lg">
-              <select class="form-control">
-                <option>vistor</option>
-                <option>registered user</option>
-                <option>owner</option>
-              </select>
-            </td>
-            <td>
-              <input class="form-control">
-            </td>
-            <td>
-              <input class="form-control">
-            </td>
-          </tr>
-          <tr ng-repeat="story in userStories">
-            <td><input type="checkbox"></td>
-            <td class="hidden-lg">{{story.userType}}</td>
-            <td>{{story.action}}</td>
-            <td class="text-monospace">{{story.bugs}}</td>
-         <!--    <td>
-              <div class="user-story-options" ng-show="menuToggle{{$index}}">
-                <button type="button" class="btn btn-link"><i fa="pencil"></i></button>
-                <button type="button" class="btn btn-link"><i fa="trash-o"></i></button>
-              </div>
-              <a ng-click="menuToggle0 = !menuToggle + $index"><span class="fa fa-2x fa-gear"></span></a>
-            </td> -->
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="bugz col-lg-7">
-
+    <div class="bugz col-lg-10 col-lg-offset-1">
       <div class="bugs-loading" ng-hide="bugs">
         <span class="fa fa-cog fa-spin"></span><span class="sr-only">Loading bugs</span>
       </div>
@@ -85,9 +39,8 @@
           </tr>
         </tbody>
       </table>
-
     </div>
 
-  </div>
+  </row>
 
 </div>
