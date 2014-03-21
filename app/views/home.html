@@ -12,7 +12,6 @@
   </header>
 
   <row>
-
     <div class="bugz col-lg-10 col-lg-offset-1">
       <div class="bugs-loading" ng-hide="bugs">
         <span class="fa fa-cog fa-spin"></span><span class="sr-only">Loading bugs</span>
@@ -27,8 +26,9 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="bug in bugs | orderBy:orderField:orderDir"
-              ng-class="{'bug-resolved': bug.resolution}">
+          <tr ng-repeat="bug in bugs | orderBy:[orderDir + orderField, '-assignedTo']"
+              ng-class="{'bug-resolved': bug.resolution, 'bug-blocked': bug.depends_on.length}"
+              ng-hide="bug.resolution === 'DUPLICATE'">
             <td>{{bug.last_change_time | timeago}}</td>
             <td class="text-monospace"> <a href="https://bugzilla.mozilla.org/show_bug.cgi?id={{bug.id}}" target="_blank">#{{bug.id}}</a></td>
             <td>

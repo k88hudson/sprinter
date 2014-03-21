@@ -59,9 +59,9 @@ angular.module('myApp', [
         },
         {
           id: 3,
-          title: 'Events Future',
+          title: 'Events R3',
           dueDate: 'April 1 2014',
-          whiteboard: 'events2, future'
+          whiteboard: 'events2, r3'
         },
         {
           id: 4,

@@ -186,12 +186,21 @@ header {
   border-radius: 4px;
 }
 
+.bug-resolved,
+.bug-blocked {
+  a {
+    color: inherit;
+  }
+}
 .bug-resolved {
   color: fade(@text-color, 40%);
   a {
-    color: inherit;
     text-decoration: line-through;
   }
+}
+.bug-blocked {
+  background: #FF6F69;
+  color: darken(#FF6F69, 40%);
 }
 
 .table.bug-table {

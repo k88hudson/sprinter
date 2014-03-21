@@ -70,15 +70,19 @@ angular.module('myApp.controllers', [])
         }
       ];
 
-      var asc = false;
-      var desc = true;
+      var asc = '';
+      var desc = '-';
+
+      function switchDir(dir) {
+        return dir === '-' ? '' : '-';
+      }
 
       $scope.orderField = 'last_change_time';
       $scope.orderDir = desc;
 
       $scope.setOrderBy = function(field) {
         if (field === $scope.orderField) {
-          $scope.orderDir = !$scope.orderDir;
+          $scope.orderDir = switchDir($scope.orderDir);
         } else {
           $scope.orderField = field;
           if (field === 'last_change_time' || field === 'status') {
@@ -109,11 +113,11 @@ angular.module('myApp.controllers', [])
           params: {
             product: 'Webmaker',
             whiteboard: $scope.m.whiteboard,
-            limit: 20
+            limit: 50
           }
         })
         .success(function(data) {
-          console.log(data[0]);
+          console.log(data);
           $scope.bugs = data;
         });
 
