@@ -1,8 +1,18 @@
 // Controllers ----------------------------------------------------------------
 
 angular.module('myApp.controllers', [])
-  .controller('AddCtrl', ['$scope',
-    function($scope) {
+  .controller('AddCtrl', ['$scope', '$http', 'moment', 'milestoneService',
+    function($scope, $http, moment, milestoneService) {
+
+      // The default dueDate should be today
+
+      function reset() {
+        $scope.new = {
+          dueDate: new Date()
+        };
+      }
+
+      reset();
 
       $scope.open = function($event) {
         $event.preventDefault();
@@ -10,11 +20,24 @@ angular.module('myApp.controllers', [])
         $scope.opened = true;
       };
 
-      $scope.dt = new Date();
       $scope.minDate = new Date();
       $scope.dateOptions = {
          'year-format': "'yy'",
          'show-weeks': false
+       };
+
+       $scope.submit = function() {
+
+        // Set the time of the due date to 4:00PM Eastern, which is when our demos are
+        $scope.new.dueDate = moment($scope.new.dueDate).hour(16).startOf('hour').toDate();
+
+        $http
+          .post('/milestone', $scope.new)
+          .success(function(data) {
+            reset();
+            milestoneService.refresh();
+            // how do we notify milestone service?
+          });
        };
 
     }
@@ -23,7 +46,13 @@ angular.module('myApp.controllers', [])
 
     function($scope, $http, $rootScope, $routeParams) {
 
-      $scope.m = $rootScope.milestones[$routeParams.id];
+      $scope.m = {};
+
+      $http
+        .get('/milestone/' + $routeParams.id)
+        .success(function(data) {
+          $scope.m = data
+        });
 
       $scope.newBugUrl = 'https://bugzilla.mozilla.org/enter_bug.cgi?product=Webmaker' +
         '&status_whiteboard=' + encodeURIComponent($scope.m.whiteboard);
