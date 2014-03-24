@@ -10,16 +10,16 @@
       <div class="col-sm-6">
         <div class="form-group">
           <label>Title</label>
-          <input class="form-control">
+          <input ng-model="new.title" class="form-control">
         </div>
         <div class="form-group">
           <label>Whiteboard search</label>
-          <input class="form-control">
+          <input ng-model="new.whiteboard" class="form-control">
           <div class="help-block">eg. events2, mvp</div>
         </div>
         <div class="form-group">
           <label>Description</label>
-          <textarea class="form-control"></textarea>
+          <textarea ng-model="new.description" class="form-control"></textarea>
         </div>
       </div>
 
@@ -32,7 +32,7 @@
               type="text"
               class="form-control"
               datepicker-popup="longDate"
-              ng-model="dt"
+              ng-model="new.dueDate"
               is-open="opened"
               min="minDate"
               max="'2015-06-22'"

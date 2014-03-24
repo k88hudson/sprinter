@@ -1,0 +1,1116 @@
+[
+  {
+    "priority": "--",
+    "creator": "cassie@mozillafoundation.org",
+    "blocks": [
+      982648
+    ],
+    "assigned_to_detail": {
+      "email": "cassie@mozillafoundation.org",
+      "real_name": "Cassie McDaniel [:cassiemc]",
+      "name": "cassie@mozillafoundation.org",
+      "id": 467803
+    },
+    "last_change_time": "2014-03-20T12:36:19Z",
+    "is_cc_accessible": true,
+    "keywords": [],
+    "cf_qa_whiteboard": "",
+    "creator_detail": {
+      "email": "cassie@mozillafoundation.org",
+      "real_name": "Cassie McDaniel [:cassiemc]",
+      "name": "cassie@mozillafoundation.org",
+      "id": 467803
+    },
+    "cc": [
+      "brett@mozillafoundation.org",
+      "gavin@mozillafoundation.org",
+      "kate@mozillafoundation.org",
+      "matt@mozillafoundation.org"
+    ],
+    "see_also": [],
+    "groups": [],
+    "assigned_to": "cassie@mozillafoundation.org",
+    "url": "",
+    "qa_contact": "",
+    "whiteboard": "[explore][mvp]",
+    "creation_time": "2014-02-26T17:25:05Z",
+    "id": 977172,
+    "depends_on": [],
+    "dupe_of": null,
+    "resolution": "",
+    "classification": "Other",
+    "alias": null,
+    "op_sys": "Mac OS X",
+    "status": "ASSIGNED",
+    "cc_detail": [
+      {
+        "email": "brett@mozillafoundation.org",
+        "real_name": "Brett Gaylor [:brett]",
+        "name": "brett@mozillafoundation.org",
+        "id": 382048
+      },
+      {
+        "email": "gavin@mozillafoundation.org",
+        "real_name": "Gavin Suntop [:gvn]",
+        "name": "gavin@mozillafoundation.org",
+        "id": 474649
+      },
+      {
+        "email": "kate@mozillafoundation.org",
+        "real_name": "Kate Hudson (:k88hudson)",
+        "name": "kate@mozillafoundation.org",
+        "id": 444902
+      },
+      {
+        "email": "matt@mozillafoundation.org",
+        "real_name": "Matt Thompson (@OpenMatt :OpenMatt)",
+        "name": "matt@mozillafoundation.org",
+        "id": 431323
+      }
+    ],
+    "summary": "Design landing page for /Explore",
+    "cf_user_story": "",
+    "is_open": true,
+    "platform": "x86",
+    "severity": "normal",
+    "flags": [],
+    "version": "unspecified",
+    "component": "webmaker.org",
+    "is_creator_accessible": true,
+    "target_milestone": "---",
+    "product": "Webmaker",
+    "is_confirmed": true
+  },
+  {
+    "priority": "--",
+    "creator": "cassie@mozillafoundation.org",
+    "blocks": [],
+    "assigned_to_detail": {
+      "email": "doug@mozillafoundation.org",
+      "real_name": "[:dajbelshaw] Doug Belshaw",
+      "name": "doug@mozillafoundation.org",
+      "id": 444601
+    },
+    "last_change_time": "2014-03-17T16:27:57Z",
+    "is_cc_accessible": true,
+    "keywords": [],
+    "cf_qa_whiteboard": "",
+    "creator_detail": {
+      "email": "cassie@mozillafoundation.org",
+      "real_name": "Cassie McDaniel [:cassiemc]",
+      "name": "cassie@mozillafoundation.org",
+      "id": 467803
+    },
+    "cc": [],
+    "see_also": [],
+    "groups": [],
+    "assigned_to": "doug@mozillafoundation.org",
+    "url": "",
+    "qa_contact": "",
+    "whiteboard": "[explore][mvp]",
+    "creation_time": "2014-02-26T17:29:45Z",
+    "id": 977176,
+    "depends_on": [],
+    "dupe_of": null,
+    "resolution": "FIXED",
+    "classification": "Other",
+    "alias": null,
+    "op_sys": "Mac OS X",
+    "status": "RESOLVED",
+    "cc_detail": [],
+    "summary": "Introductory written content for each web competency",
+    "cf_user_story": "",
+    "is_open": false,
+    "platform": "x86",
+    "severity": "normal",
+    "flags": [],
+    "version": "unspecified",
+    "component": "webmaker.org",
+    "is_creator_accessible": true,
+    "target_milestone": "---",
+    "product": "Webmaker",
+    "is_confirmed": true
+  },
+  {
+    "priority": "--",
+    "creator": "cassie@mozillafoundation.org",
+    "blocks": [
+      982630
+    ],
+    "assigned_to_detail": {
+      "email": "clawrence@mozillafoundation.org",
+      "real_name": "",
+      "name": "clawrence@mozillafoundation.org",
+      "id": 453978
+    },
+    "last_change_time": "2014-03-19T16:27:15Z",
+    "is_cc_accessible": true,
+    "keywords": [],
+    "cf_qa_whiteboard": "",
+    "creator_detail": {
+      "email": "cassie@mozillafoundation.org",
+      "real_name": "Cassie McDaniel [:cassiemc]",
+      "name": "cassie@mozillafoundation.org",
+      "id": 467803
+    },
+    "cc": [
+      "amira@mozillafoundation.org",
+      "clawrence@mozillafoundation.org",
+      "doug@mozillafoundation.org",
+      "elsa@mozillafoundation.org",
+      "julia@mozillafoundation.org",
+      "kathryn@mozillafoundation.org",
+      "lainie@mozillafoundation.org",
+      "laura@mozillafoundation.org",
+      "leah@mozillafoundation.org",
+      "matt@mozillafoundation.org",
+      "michelle@mozillafoundation.org",
+      "mthorne04@aol.com"
+    ],
+    "see_also": [],
+    "groups": [],
+    "assigned_to": "clawrence@mozillafoundation.org",
+    "url": "",
+    "qa_contact": "",
+    "whiteboard": "[explore][mvp]",
+    "creation_time": "2014-02-26T22:04:38Z",
+    "id": 977327,
+    "depends_on": [],
+    "dupe_of": null,
+    "resolution": "",
+    "classification": "Other",
+    "alias": null,
+    "op_sys": "Mac OS X",
+    "status": "ASSIGNED",
+    "cc_detail": [
+      {
+        "email": "amira@mozillafoundation.org",
+        "real_name": "Amira",
+        "name": "amira@mozillafoundation.org",
+        "id": 474332
+      },
+      {
+        "email": "clawrence@mozillafoundation.org",
+        "real_name": "",
+        "name": "clawrence@mozillafoundation.org",
+        "id": 453978
+      },
+      {
+        "email": "doug@mozillafoundation.org",
+        "real_name": "[:dajbelshaw] Doug Belshaw",
+        "name": "doug@mozillafoundation.org",
+        "id": 444601
+      },
+      {
+        "email": "elsa@mozillafoundation.org",
+        "real_name": "",
+        "name": "elsa@mozillafoundation.org",
+        "id": 481009
+      },
+      {
+        "email": "julia@mozillafoundation.org",
+        "real_name": "",
+        "name": "julia@mozillafoundation.org",
+        "id": 489151
+      },
+      {
+        "email": "kathryn@mozillafoundation.org",
+        "real_name": "",
+        "name": "kathryn@mozillafoundation.org",
+        "id": 470003
+      },
+      {
+        "email": "lainie@mozillafoundation.org",
+        "real_name": "",
+        "name": "lainie@mozillafoundation.org",
+        "id": 428490
+      },
+      {
+        "email": "laura@mozillafoundation.org",
+        "real_name": "Laura Hilliger [:epilepticrabbit]",
+        "name": "laura@mozillafoundation.org",
+        "id": 431243
+      },
+      {
+        "email": "leah@mozillafoundation.org",
+        "real_name": "",
+        "name": "leah@mozillafoundation.org",
+        "id": 441009
+      },
+      {
+        "email": "matt@mozillafoundation.org",
+        "real_name": "Matt Thompson (@OpenMatt :OpenMatt)",
+        "name": "matt@mozillafoundation.org",
+        "id": 431323
+      },
+      {
+        "email": "michelle@mozillafoundation.org",
+        "real_name": "Michelle Thorne",
+        "name": "michelle@mozillafoundation.org",
+        "id": 412287
+      },
+      {
+        "email": "mthorne04@aol.com",
+        "real_name": "michelle thorne",
+        "name": "mthorne04@aol.com",
+        "id": 168457
+      }
+    ],
+    "summary": "Collect assets for featured experts in Explore",
+    "cf_user_story": "",
+    "is_open": true,
+    "platform": "x86",
+    "severity": "normal",
+    "flags": [],
+    "version": "unspecified",
+    "component": "webmaker.org",
+    "is_creator_accessible": true,
+    "target_milestone": "---",
+    "product": "Webmaker",
+    "is_confirmed": true
+  },
+  {
+    "priority": "--",
+    "creator": "cassie@mozillafoundation.org",
+    "blocks": [],
+    "assigned_to_detail": {
+      "email": "cassie@mozillafoundation.org",
+      "real_name": "Cassie McDaniel [:cassiemc]",
+      "name": "cassie@mozillafoundation.org",
+      "id": 467803
+    },
+    "last_change_time": "2014-03-17T16:21:40Z",
+    "is_cc_accessible": true,
+    "keywords": [],
+    "cf_qa_whiteboard": "",
+    "creator_detail": {
+      "email": "cassie@mozillafoundation.org",
+      "real_name": "Cassie McDaniel [:cassiemc]",
+      "name": "cassie@mozillafoundation.org",
+      "id": 467803
+    },
+    "cc": [
+      "gavin@mozillafoundation.org",
+      "kate@mozillafoundation.org"
+    ],
+    "see_also": [],
+    "groups": [],
+    "assigned_to": "cassie@mozillafoundation.org",
+    "url": "",
+    "qa_contact": "",
+    "whiteboard": "[explore][mvp]",
+    "creation_time": "2014-03-04T16:41:47Z",
+    "id": 979365,
+    "depends_on": [],
+    "dupe_of": null,
+    "resolution": "FIXED",
+    "classification": "Other",
+    "alias": null,
+    "op_sys": "Mac OS X",
+    "status": "RESOLVED",
+    "cc_detail": [
+      {
+        "email": "gavin@mozillafoundation.org",
+        "real_name": "Gavin Suntop [:gvn]",
+        "name": "gavin@mozillafoundation.org",
+        "id": 474649
+      },
+      {
+        "email": "kate@mozillafoundation.org",
+        "real_name": "Kate Hudson (:k88hudson)",
+        "name": "kate@mozillafoundation.org",
+        "id": 444902
+      }
+    ],
+    "summary": "Write user stories for Explore MVP",
+    "cf_user_story": "",
+    "is_open": false,
+    "platform": "x86",
+    "severity": "normal",
+    "flags": [],
+    "version": "unspecified",
+    "component": "webmaker.org",
+    "is_creator_accessible": true,
+    "target_milestone": "---",
+    "product": "Webmaker",
+    "is_confirmed": true
+  },
+  {
+    "priority": "--",
+    "creator": "kate@mozillafoundation.org",
+    "blocks": [
+      984454
+    ],
+    "assigned_to_detail": {
+      "email": "kate@mozillafoundation.org",
+      "real_name": "Kate Hudson (:k88hudson)",
+      "name": "kate@mozillafoundation.org",
+      "id": 444902
+    },
+    "last_change_time": "2014-03-20T15:04:11Z",
+    "is_cc_accessible": true,
+    "keywords": [],
+    "cf_qa_whiteboard": "",
+    "creator_detail": {
+      "email": "kate@mozillafoundation.org",
+      "real_name": "Kate Hudson (:k88hudson)",
+      "name": "kate@mozillafoundation.org",
+      "id": 444902
+    },
+    "cc": [
+      "jon@mozillafoundation.org",
+      "matt@mozillafoundation.org"
+    ],
+    "see_also": [],
+    "groups": [],
+    "assigned_to": "kate@mozillafoundation.org",
+    "url": "",
+    "qa_contact": "",
+    "whiteboard": " [explore][mvp]",
+    "creation_time": "2014-03-05T19:28:05Z",
+    "id": 980001,
+    "depends_on": [],
+    "dupe_of": null,
+    "resolution": "FIXED",
+    "classification": "Other",
+    "alias": null,
+    "op_sys": "Mac OS X",
+    "status": "RESOLVED",
+    "cc_detail": [
+      {
+        "email": "jon@mozillafoundation.org",
+        "real_name": "Jon Buckley [:jbuck]",
+        "name": "jon@mozillafoundation.org",
+        "id": 470566
+      },
+      {
+        "email": "matt@mozillafoundation.org",
+        "real_name": "Matt Thompson (@OpenMatt :OpenMatt)",
+        "name": "matt@mozillafoundation.org",
+        "id": 431323
+      }
+    ],
+    "summary": "Figure out deployment and integration strategy for explore",
+    "cf_user_story": "",
+    "is_open": false,
+    "platform": "x86",
+    "severity": "normal",
+    "flags": [],
+    "version": "unspecified",
+    "component": "webmaker.org",
+    "is_creator_accessible": true,
+    "target_milestone": "---",
+    "product": "Webmaker",
+    "is_confirmed": true
+  },
+  {
+    "priority": "--",
+    "creator": "cassie@mozillafoundation.org",
+    "blocks": [
+      982638
+    ],
+    "assigned_to_detail": {
+      "email": "clawrence@mozillafoundation.org",
+      "real_name": "",
+      "name": "clawrence@mozillafoundation.org",
+      "id": 453978
+    },
+    "last_change_time": "2014-03-19T20:41:30Z",
+    "is_cc_accessible": true,
+    "keywords": [],
+    "cf_qa_whiteboard": "",
+    "creator_detail": {
+      "email": "cassie@mozillafoundation.org",
+      "real_name": "Cassie McDaniel [:cassiemc]",
+      "name": "cassie@mozillafoundation.org",
+      "id": 467803
+    },
+    "cc": [
+      "clawrence@mozillafoundation.org",
+      "gavin@mozillafoundation.org",
+      "kat@mozillafoundation.org",
+      "kate@mozillafoundation.org",
+      "matt@mozillafoundation.org"
+    ],
+    "see_also": [],
+    "groups": [],
+    "assigned_to": "clawrence@mozillafoundation.org",
+    "url": "",
+    "qa_contact": "",
+    "whiteboard": "[explore][mvp]",
+    "creation_time": "2014-03-06T21:34:57Z",
+    "id": 980528,
+    "depends_on": [
+      964277
+    ],
+    "dupe_of": null,
+    "resolution": "",
+    "classification": "Other",
+    "alias": null,
+    "op_sys": "Mac OS X",
+    "status": "ASSIGNED",
+    "cc_detail": [
+      {
+        "email": "clawrence@mozillafoundation.org",
+        "real_name": "",
+        "name": "clawrence@mozillafoundation.org",
+        "id": 453978
+      },
+      {
+        "email": "gavin@mozillafoundation.org",
+        "real_name": "Gavin Suntop [:gvn]",
+        "name": "gavin@mozillafoundation.org",
+        "id": 474649
+      },
+      {
+        "email": "kat@mozillafoundation.org",
+        "real_name": "Kat Braybrooke [:codekat]",
+        "name": "kat@mozillafoundation.org",
+        "id": 467064
+      },
+      {
+        "email": "kate@mozillafoundation.org",
+        "real_name": "Kate Hudson (:k88hudson)",
+        "name": "kate@mozillafoundation.org",
+        "id": 444902
+      },
+      {
+        "email": "matt@mozillafoundation.org",
+        "real_name": "Matt Thompson (@OpenMatt :OpenMatt)",
+        "name": "matt@mozillafoundation.org",
+        "id": 431323
+      }
+    ],
+    "summary": "Gather canonical teaching kit examples for each web lit competency",
+    "cf_user_story": "",
+    "is_open": true,
+    "platform": "x86",
+    "severity": "normal",
+    "flags": [],
+    "version": "unspecified",
+    "component": "webmaker.org",
+    "is_creator_accessible": true,
+    "target_milestone": "---",
+    "product": "Webmaker",
+    "is_confirmed": true
+  },
+  {
+    "priority": "--",
+    "creator": "kate@mozillafoundation.org",
+    "blocks": [
+      979418,
+      980525,
+      982625,
+      982628
+    ],
+    "assigned_to_detail": {
+      "email": "kate@mozillafoundation.org",
+      "real_name": "Kate Hudson (:k88hudson)",
+      "name": "kate@mozillafoundation.org",
+      "id": 444902
+    },
+    "last_change_time": "2014-03-21T17:19:01Z",
+    "is_cc_accessible": true,
+    "keywords": [],
+    "cf_qa_whiteboard": "",
+    "creator_detail": {
+      "email": "kate@mozillafoundation.org",
+      "real_name": "Kate Hudson (:k88hudson)",
+      "name": "kate@mozillafoundation.org",
+      "id": 444902
+    },
+    "cc": [
+      "ali@alicoding.com",
+      "cade@mozillafoundation.org",
+      "doug@mozillafoundation.org",
+      "kate@mozillafoundation.org",
+      "matt@mozillafoundation.org"
+    ],
+    "see_also": [],
+    "groups": [],
+    "assigned_to": "kate@mozillafoundation.org",
+    "url": "",
+    "qa_contact": "",
+    "whiteboard": "[explore][mvp]",
+    "creation_time": "2014-03-10T16:16:15Z",
+    "id": 981675,
+    "depends_on": [],
+    "dupe_of": null,
+    "resolution": "",
+    "classification": "Other",
+    "alias": null,
+    "op_sys": "Mac OS X",
+    "status": "ASSIGNED",
+    "cc_detail": [
+      {
+        "email": "ali@alicoding.com",
+        "real_name": "Ali Al Dallal [:aali]",
+        "name": "ali@alicoding.com",
+        "id": 470017
+      },
+      {
+        "email": "cade@mozillafoundation.org",
+        "real_name": "Chris DeCairos (:cade)",
+        "name": "cade@mozillafoundation.org",
+        "id": 393998
+      },
+      {
+        "email": "doug@mozillafoundation.org",
+        "real_name": "[:dajbelshaw] Doug Belshaw",
+        "name": "doug@mozillafoundation.org",
+        "id": 444601
+      },
+      {
+        "email": "kate@mozillafoundation.org",
+        "real_name": "Kate Hudson (:k88hudson)",
+        "name": "kate@mozillafoundation.org",
+        "id": 444902
+      },
+      {
+        "email": "matt@mozillafoundation.org",
+        "real_name": "Matt Thompson (@OpenMatt :OpenMatt)",
+        "name": "matt@mozillafoundation.org",
+        "id": 431323
+      }
+    ],
+    "summary": "Store web literacies by number/version",
+    "cf_user_story": "",
+    "is_open": true,
+    "platform": "x86",
+    "severity": "normal",
+    "flags": [],
+    "version": "unspecified",
+    "component": "webmaker.org",
+    "is_creator_accessible": true,
+    "target_milestone": "---",
+    "product": "Webmaker",
+    "is_confirmed": true
+  },
+  {
+    "priority": "--",
+    "creator": "cassie@mozillafoundation.org",
+    "blocks": [],
+    "assigned_to_detail": {
+      "email": "clawrence@mozillafoundation.org",
+      "real_name": "",
+      "name": "clawrence@mozillafoundation.org",
+      "id": 453978
+    },
+    "last_change_time": "2014-03-12T19:14:34Z",
+    "is_cc_accessible": true,
+    "keywords": [],
+    "cf_qa_whiteboard": "",
+    "creator_detail": {
+      "email": "cassie@mozillafoundation.org",
+      "real_name": "Cassie McDaniel [:cassiemc]",
+      "name": "cassie@mozillafoundation.org",
+      "id": 467803
+    },
+    "cc": [
+      "clawrence@mozillafoundation.org",
+      "kate@mozillafoundation.org",
+      "pomax@mozillafoundation.org"
+    ],
+    "see_also": [],
+    "groups": [],
+    "assigned_to": "clawrence@mozillafoundation.org",
+    "url": "",
+    "qa_contact": "",
+    "whiteboard": "[explore][mvp]",
+    "creation_time": "2014-03-12T13:44:49Z",
+    "id": 982630,
+    "depends_on": [
+      977327
+    ],
+    "dupe_of": null,
+    "resolution": "",
+    "classification": "Other",
+    "alias": null,
+    "op_sys": "Mac OS X",
+    "status": "ASSIGNED",
+    "cc_detail": [
+      {
+        "email": "clawrence@mozillafoundation.org",
+        "real_name": "",
+        "name": "clawrence@mozillafoundation.org",
+        "id": 453978
+      },
+      {
+        "email": "kate@mozillafoundation.org",
+        "real_name": "Kate Hudson (:k88hudson)",
+        "name": "kate@mozillafoundation.org",
+        "id": 444902
+      },
+      {
+        "email": "pomax@mozillafoundation.org",
+        "real_name": "Mike \"Pomax\" Kamermans [:pomax]",
+        "name": "pomax@mozillafoundation.org",
+        "id": 295658
+      }
+    ],
+    "summary": "Featured experts in Explore should have Webmaker Profiles",
+    "cf_user_story": "",
+    "is_open": true,
+    "platform": "x86",
+    "severity": "normal",
+    "flags": [],
+    "version": "unspecified",
+    "component": "webmaker.org",
+    "is_creator_accessible": true,
+    "target_milestone": "---",
+    "product": "Webmaker",
+    "is_confirmed": true,
+    "blocked": true
+  },
+  {
+    "priority": "--",
+    "creator": "cassie@mozillafoundation.org",
+    "blocks": [],
+    "assigned_to_detail": {
+      "email": "gavin@mozillafoundation.org",
+      "real_name": "Gavin Suntop [:gvn]",
+      "name": "gavin@mozillafoundation.org",
+      "id": 474649
+    },
+    "last_change_time": "2014-03-21T16:55:21Z",
+    "is_cc_accessible": true,
+    "keywords": [],
+    "cf_qa_whiteboard": "",
+    "creator_detail": {
+      "email": "cassie@mozillafoundation.org",
+      "real_name": "Cassie McDaniel [:cassiemc]",
+      "name": "cassie@mozillafoundation.org",
+      "id": 467803
+    },
+    "cc": [
+      "gavin@mozillafoundation.org",
+      "kate@mozillafoundation.org",
+      "lainie@mozillafoundation.org"
+    ],
+    "see_also": [],
+    "groups": [],
+    "assigned_to": "gavin@mozillafoundation.org",
+    "url": "",
+    "qa_contact": "",
+    "whiteboard": "[explore][mvp][profiles][profile2][gvn]",
+    "creation_time": "2014-03-12T14:03:42Z",
+    "id": 982637,
+    "depends_on": [],
+    "dupe_of": null,
+    "resolution": "",
+    "classification": "Other",
+    "alias": null,
+    "op_sys": "Mac OS X",
+    "status": "ASSIGNED",
+    "cc_detail": [
+      {
+        "email": "gavin@mozillafoundation.org",
+        "real_name": "Gavin Suntop [:gvn]",
+        "name": "gavin@mozillafoundation.org",
+        "id": 474649
+      },
+      {
+        "email": "kate@mozillafoundation.org",
+        "real_name": "Kate Hudson (:k88hudson)",
+        "name": "kate@mozillafoundation.org",
+        "id": 444902
+      },
+      {
+        "email": "lainie@mozillafoundation.org",
+        "real_name": "",
+        "name": "lainie@mozillafoundation.org",
+        "id": 428490
+      }
+    ],
+    "summary": "Profiles should display contact info",
+    "cf_user_story": "",
+    "is_open": true,
+    "platform": "x86",
+    "severity": "normal",
+    "flags": [],
+    "version": "unspecified",
+    "component": "Profile",
+    "is_creator_accessible": true,
+    "target_milestone": "---",
+    "product": "Webmaker",
+    "is_confirmed": true
+  },
+  {
+    "priority": "--",
+    "creator": "cassie@mozillafoundation.org",
+    "blocks": [],
+    "assigned_to_detail": {
+      "email": "kate@mozillafoundation.org",
+      "real_name": "Kate Hudson (:k88hudson)",
+      "name": "kate@mozillafoundation.org",
+      "id": 444902
+    },
+    "last_change_time": "2014-03-21T16:30:10Z",
+    "is_cc_accessible": true,
+    "keywords": [],
+    "cf_qa_whiteboard": "",
+    "creator_detail": {
+      "email": "cassie@mozillafoundation.org",
+      "real_name": "Cassie McDaniel [:cassiemc]",
+      "name": "cassie@mozillafoundation.org",
+      "id": 467803
+    },
+    "cc": [
+      "ali@alicoding.com",
+      "cassie@mozillafoundation.org",
+      "kate@mozillafoundation.org",
+      "michelle@mozillafoundation.org",
+      "pomax@mozillafoundation.org"
+    ],
+    "see_also": [],
+    "groups": [],
+    "assigned_to": "kate@mozillafoundation.org",
+    "url": "",
+    "qa_contact": "",
+    "whiteboard": "[explore][mvp]",
+    "creation_time": "2014-03-12T14:17:35Z",
+    "id": 982639,
+    "depends_on": [],
+    "dupe_of": null,
+    "resolution": "FIXED",
+    "classification": "Other",
+    "alias": null,
+    "op_sys": "Mac OS X",
+    "status": "RESOLVED",
+    "cc_detail": [
+      {
+        "email": "ali@alicoding.com",
+        "real_name": "Ali Al Dallal [:aali]",
+        "name": "ali@alicoding.com",
+        "id": 470017
+      },
+      {
+        "email": "cassie@mozillafoundation.org",
+        "real_name": "Cassie McDaniel [:cassiemc]",
+        "name": "cassie@mozillafoundation.org",
+        "id": 467803
+      },
+      {
+        "email": "kate@mozillafoundation.org",
+        "real_name": "Kate Hudson (:k88hudson)",
+        "name": "kate@mozillafoundation.org",
+        "id": 444902
+      },
+      {
+        "email": "michelle@mozillafoundation.org",
+        "real_name": "Michelle Thorne",
+        "name": "michelle@mozillafoundation.org",
+        "id": 412287
+      },
+      {
+        "email": "pomax@mozillafoundation.org",
+        "real_name": "Mike \"Pomax\" Kamermans [:pomax]",
+        "name": "pomax@mozillafoundation.org",
+        "id": 295658
+      }
+    ],
+    "summary": "Link featured experts section on /explore to how to become a mentor",
+    "cf_user_story": "",
+    "is_open": false,
+    "platform": "x86",
+    "severity": "normal",
+    "flags": [],
+    "version": "unspecified",
+    "component": "webmaker.org",
+    "is_creator_accessible": true,
+    "target_milestone": "---",
+    "product": "Webmaker",
+    "is_confirmed": true
+  },
+  {
+    "priority": "--",
+    "creator": "cassie@mozillafoundation.org",
+    "blocks": [],
+    "assigned_to_detail": {
+      "email": "kate@mozillafoundation.org",
+      "real_name": "Kate Hudson (:k88hudson)",
+      "name": "kate@mozillafoundation.org",
+      "id": 444902
+    },
+    "last_change_time": "2014-03-20T12:36:19Z",
+    "is_cc_accessible": true,
+    "keywords": [],
+    "cf_qa_whiteboard": "",
+    "creator_detail": {
+      "email": "cassie@mozillafoundation.org",
+      "real_name": "Cassie McDaniel [:cassiemc]",
+      "name": "cassie@mozillafoundation.org",
+      "id": 467803
+    },
+    "cc": [
+      "cassie@mozillafoundation.org"
+    ],
+    "see_also": [],
+    "groups": [],
+    "assigned_to": "kate@mozillafoundation.org",
+    "url": "",
+    "qa_contact": "",
+    "whiteboard": "[explore][mvp]",
+    "creation_time": "2014-03-12T14:33:03Z",
+    "id": 982648,
+    "depends_on": [
+      977172
+    ],
+    "dupe_of": null,
+    "resolution": "",
+    "classification": "Other",
+    "alias": null,
+    "op_sys": "Mac OS X",
+    "status": "ASSIGNED",
+    "cc_detail": [
+      {
+        "email": "cassie@mozillafoundation.org",
+        "real_name": "Cassie McDaniel [:cassiemc]",
+        "name": "cassie@mozillafoundation.org",
+        "id": 467803
+      }
+    ],
+    "summary": "Link /explore to Webmaker's mission statement",
+    "cf_user_story": "",
+    "is_open": true,
+    "platform": "x86",
+    "severity": "normal",
+    "flags": [],
+    "version": "unspecified",
+    "component": "webmaker.org",
+    "is_creator_accessible": true,
+    "target_milestone": "---",
+    "product": "Webmaker",
+    "is_confirmed": true,
+    "blocked": true
+  },
+  {
+    "priority": "--",
+    "creator": "cassie@mozillafoundation.org",
+    "blocks": [],
+    "assigned_to_detail": {
+      "email": "kate@mozillafoundation.org",
+      "real_name": "Kate Hudson (:k88hudson)",
+      "name": "kate@mozillafoundation.org",
+      "id": 444902
+    },
+    "last_change_time": "2014-03-14T19:11:19Z",
+    "is_cc_accessible": true,
+    "keywords": [],
+    "cf_qa_whiteboard": "",
+    "creator_detail": {
+      "email": "cassie@mozillafoundation.org",
+      "real_name": "Cassie McDaniel [:cassiemc]",
+      "name": "cassie@mozillafoundation.org",
+      "id": 467803
+    },
+    "cc": [
+      "brett@mozillafoundation.org"
+    ],
+    "see_also": [],
+    "groups": [],
+    "assigned_to": "kate@mozillafoundation.org",
+    "url": "",
+    "qa_contact": "",
+    "whiteboard": "explore, mvp",
+    "creation_time": "2014-03-14T19:04:23Z",
+    "id": 983783,
+    "depends_on": [],
+    "dupe_of": null,
+    "resolution": "",
+    "classification": "Other",
+    "alias": null,
+    "op_sys": "Mac OS X",
+    "status": "ASSIGNED",
+    "cc_detail": [
+      {
+        "email": "brett@mozillafoundation.org",
+        "real_name": "Brett Gaylor [:brett]",
+        "name": "brett@mozillafoundation.org",
+        "id": 382048
+      }
+    ],
+    "summary": "Add 15th Web Lit competency to Explore",
+    "cf_user_story": "",
+    "is_open": true,
+    "platform": "x86",
+    "severity": "normal",
+    "flags": [],
+    "version": "unspecified",
+    "component": "webmaker.org",
+    "is_creator_accessible": true,
+    "target_milestone": "---",
+    "product": "Webmaker",
+    "is_confirmed": true
+  },
+  {
+    "priority": "--",
+    "creator": "cassie@mozillafoundation.org",
+    "blocks": [],
+    "assigned_to_detail": {
+      "email": "kate@mozillafoundation.org",
+      "real_name": "Kate Hudson (:k88hudson)",
+      "name": "kate@mozillafoundation.org",
+      "id": 444902
+    },
+    "last_change_time": "2014-03-17T16:48:33Z",
+    "is_cc_accessible": true,
+    "keywords": [],
+    "cf_qa_whiteboard": "",
+    "creator_detail": {
+      "email": "cassie@mozillafoundation.org",
+      "real_name": "Cassie McDaniel [:cassiemc]",
+      "name": "cassie@mozillafoundation.org",
+      "id": 467803
+    },
+    "cc": [],
+    "see_also": [],
+    "groups": [],
+    "assigned_to": "kate@mozillafoundation.org",
+    "url": "",
+    "qa_contact": "",
+    "whiteboard": "explore, mvp",
+    "creation_time": "2014-03-17T16:48:33Z",
+    "id": 984452,
+    "depends_on": [],
+    "dupe_of": null,
+    "resolution": "",
+    "classification": "Other",
+    "alias": null,
+    "op_sys": "Mac OS X",
+    "status": "ASSIGNED",
+    "cc_detail": [],
+    "summary": "Update Web Lit Competencies content in /Explore",
+    "cf_user_story": "",
+    "is_open": true,
+    "platform": "x86",
+    "severity": "normal",
+    "flags": [],
+    "version": "unspecified",
+    "component": "webmaker.org",
+    "is_creator_accessible": true,
+    "target_milestone": "---",
+    "product": "Webmaker",
+    "is_confirmed": true
+  },
+  {
+    "priority": "--",
+    "creator": "kate@mozillafoundation.org",
+    "blocks": [],
+    "assigned_to_detail": {
+      "email": "ali@alicoding.com",
+      "real_name": "Ali Al Dallal [:aali]",
+      "name": "ali@alicoding.com",
+      "id": 470017
+    },
+    "last_change_time": "2014-03-21T17:52:36Z",
+    "is_cc_accessible": true,
+    "keywords": [],
+    "cf_qa_whiteboard": "",
+    "creator_detail": {
+      "email": "kate@mozillafoundation.org",
+      "real_name": "Kate Hudson (:k88hudson)",
+      "name": "kate@mozillafoundation.org",
+      "id": 444902
+    },
+    "cc": [
+      "kate@mozillafoundation.org"
+    ],
+    "see_also": [],
+    "groups": [],
+    "assigned_to": "ali@alicoding.com",
+    "url": "",
+    "qa_contact": "",
+    "whiteboard": "explore, mvp",
+    "creation_time": "2014-03-17T16:50:28Z",
+    "id": 984454,
+    "depends_on": [
+      980001
+    ],
+    "dupe_of": null,
+    "resolution": "FIXED",
+    "classification": "Other",
+    "alias": null,
+    "op_sys": "Mac OS X",
+    "status": "RESOLVED",
+    "cc_detail": [
+      {
+        "email": "kate@mozillafoundation.org",
+        "real_name": "Kate Hudson (:k88hudson)",
+        "name": "kate@mozillafoundation.org",
+        "id": 444902
+      }
+    ],
+    "summary": "Add localization support to Explore",
+    "cf_user_story": "",
+    "is_open": false,
+    "platform": "x86",
+    "severity": "normal",
+    "flags": [],
+    "version": "unspecified",
+    "component": "webmaker.org",
+    "is_creator_accessible": true,
+    "target_milestone": "---",
+    "product": "Webmaker",
+    "is_confirmed": true
+  },
+  {
+    "priority": "--",
+    "creator": "kate@mozillafoundation.org",
+    "blocks": [],
+    "assigned_to_detail": {
+      "email": "kate@mozillafoundation.org",
+      "real_name": "Kate Hudson (:k88hudson)",
+      "name": "kate@mozillafoundation.org",
+      "id": 444902
+    },
+    "last_change_time": "2014-03-19T18:53:36Z",
+    "is_cc_accessible": true,
+    "keywords": [],
+    "cf_qa_whiteboard": "",
+    "creator_detail": {
+      "email": "kate@mozillafoundation.org",
+      "real_name": "Kate Hudson (:k88hudson)",
+      "name": "kate@mozillafoundation.org",
+      "id": 444902
+    },
+    "cc": [
+      "jon@mozillafoundation.org"
+    ],
+    "see_also": [],
+    "groups": [],
+    "assigned_to": "kate@mozillafoundation.org",
+    "url": "",
+    "qa_contact": "",
+    "whiteboard": "[explore][mvp]",
+    "creation_time": "2014-03-19T16:36:50Z",
+    "id": 985533,
+    "depends_on": [],
+    "dupe_of": null,
+    "resolution": "FIXED",
+    "classification": "Other",
+    "alias": null,
+    "op_sys": "Mac OS X",
+    "status": "RESOLVED",
+    "cc_detail": [
+      {
+        "email": "jon@mozillafoundation.org",
+        "real_name": "Jon Buckley [:jbuck]",
+        "name": "jon@mozillafoundation.org",
+        "id": 470566
+      }
+    ],
+    "summary": "Remove events css",
+    "cf_user_story": "",
+    "is_open": false,
+    "platform": "x86",
+    "severity": "normal",
+    "flags": [],
+    "version": "unspecified",
+    "component": "webmaker.org",
+    "is_creator_accessible": true,
+    "target_milestone": "---",
+    "product": "Webmaker",
+    "is_confirmed": true
+  }
+]

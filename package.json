@@ -21,7 +21,9 @@
     "grunt-shell-spawn": "0.3.0",
     "grunt-cli": "~0.1.13",
     "webmaker-auth": "0.0.8",
-    "bz": "~1.0.0-alpha.5"
+    "bz": "~1.0.0-alpha.5",
+    "sequelize": "~1.7.0",
+    "mysql": "~2.1.1"
   },
   "engines": {
     "node": ">=0.10"

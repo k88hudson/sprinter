@@ -27,7 +27,7 @@
         </thead>
         <tbody>
           <tr ng-repeat="bug in bugs | orderBy:[orderDir + orderField, '-assignedTo']"
-              ng-class="{'bug-resolved': bug.resolution, 'bug-blocked': bug.depends_on.length}"
+              ng-class="{'bug-resolved': bug.resolution, 'bug-blocked': bug.blocked}"
               ng-hide="bug.resolution === 'DUPLICATE'">
             <td>{{bug.last_change_time | timeago}}</td>
             <td class="text-monospace"> <a href="https://bugzilla.mozilla.org/show_bug.cgi?id={{bug.id}}" target="_blank">#{{bug.id}}</a></td>

@@ -19,7 +19,7 @@ angular.module('myApp.controllers', [])
 
     }
   ])
-  .controller('HomeCtrl', ['$scope', '$http', '$rootScope', '$routeParams',
+  .controller('MilestoneCtrl', ['$scope', '$http', '$rootScope', '$routeParams',
 
     function($scope, $http, $rootScope, $routeParams) {
 

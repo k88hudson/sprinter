@@ -22,8 +22,8 @@ angular.module('myApp', [
       });
 
       $routeProvider.when('/milestone/:id', {
-        templateUrl: 'views/home.html',
-        controller: 'HomeCtrl'
+        templateUrl: 'views/milestone.html',
+        controller: 'MilestoneCtrl'
       });
 
       $routeProvider.otherwise({
@@ -39,42 +39,48 @@ angular.module('myApp', [
       });
 
       $rootScope.milestones = [
+        // {
+        //   id: 0,
+        //   title: 'Events MVP',
+        //   dueDate: 'March 7 2014',
+        //   whiteboard: 'events2, mvp'
+        // },
+        // {
+        //   id: 1,
+        //   title: 'Events Fast-follow',
+        //   dueDate: 'March 14 2014',
+        //   whiteboard: 'events2, r2'
+        // },
         {
           id: 0,
-          title: 'Events MVP',
-          dueDate: 'March 7 2014',
-          whiteboard: 'events2, mvp'
-        },
-        {
-          id: 1,
-          title: 'Events Fast-follow',
-          dueDate: 'March 14 2014',
-          whiteboard: 'events2, r2'
-        },
-        {
-          id: 2,
           title: 'Explore MVP',
-          dueDate: 'March 14 2014',
+          dueDate: 'March 20, 2014',
           whiteboard: 'explore, mvp'
         },
         {
-          id: 3,
+          id: 1,
+          title: 'Explore R2',
+          dueDate: 'March 28, 2014',
+          whiteboard: 'explore, r2'
+        },
+        {
+          id: 2,
           title: 'Events R3',
-          dueDate: 'April 1 2014',
+          dueDate: 'March 20, 2014',
           whiteboard: 'events2, r3'
-        },
-        {
-          id: 4,
-          title: 'Webmaker.org March 14',
-          dueDate: 'March 14 2014',
-          whiteboard: 'webmaker.org, 2014-03-14'
-        },
-        {
-          id: 5,
-          title: 'Login Phase 4',
-          dueDate: 'March 7 2014',
-          whiteboard: 'login2-phase4'
         }
+        // {
+        //   id: 4,
+        //   title: 'Webmaker.org March 14',
+        //   dueDate: 'March 14 2014',
+        //   whiteboard: 'webmaker.org, 2014-03-14'
+        // },
+        // {
+        //   id: 5,
+        //   title: 'Login Phase 4',
+        //   dueDate: 'March 7 2014',
+        //   whiteboard: 'login2-phase4'
+        // }
       ];
 
     }

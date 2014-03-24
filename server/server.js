@@ -1,6 +1,7 @@
 module.exports = function (env) {
   var express = require('express');
   var app = express();
+  var db = require('./db')(env.get('db'));
   var bz = require('bz');
 
   app.use(express.logger('dev'));
@@ -19,6 +20,8 @@ module.exports = function (env) {
     res.send('window.angularConfig = ' + JSON.stringify(config));
   });
 
+  require('./routes')(env, app, db);
+
   // bz
   var bugzilla = bz.createClient();
   app.get('/bug', function (req, res, next) {
@@ -26,7 +29,25 @@ module.exports = function (env) {
       if (err) {
         return next(err);
       }
-      res.send(bugs);
+      var output = bugs.map(function(bug) {
+
+        // Check real name
+        if (!bug.assigned_to_detail.real_name) {
+          bug.assigned_to_detail.real_name = bug.assigned_to_detail.email.split('@')[0];
+        }
+        // Check if bugs which it depends on are resolved
+        if (bug.depends_on.length) {
+          bug.depends_on.forEach(function(blockerId) {
+            bugs.forEach(function(item) {
+              if (item.id === blockerId && !item.resolution) {
+                bug.blocked = true;
+              }
+            })
+          });
+        }
+        return bug;
+      });
+      res.send(output);
     })
   });
 
