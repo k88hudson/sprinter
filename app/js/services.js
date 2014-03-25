@@ -7,14 +7,16 @@ angular.module('myApp.services', ['ngResource'])
     '$http',
     '$rootScope',
     function($http, $rootScope) {
-      return {
-        refresh: function() {
-          $http
-            .get('/milestone')
-            .success(function (data) {
-              $rootScope.milestones = data;
-            });
-        }
+      var service = {};
+      service.milestones = [];
+      service.get = function() {
+        $http
+          .get('/milestone')
+          .success(function(data) {
+            service.milestones = data;
+          });
       };
+
+      return service;
     }
   ]);

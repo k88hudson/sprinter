@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <header>
     <h1 class="feature-title">{{m.title}}</h1>
-    <h3 class="feature-due-date">Due {{m.dueDate | timeago}} <a href="{{newBugUrl}}" class="btn btn-primary btn-add-bug" target="_blank">Add bug</a></h3>
+    <h3 class="feature-due-date">Due {{m.dueDate | timeago}} <a href="{{newBugUrl()}}" class="btn btn-primary btn-add-bug" target="_blank">Add bug</a></h3>
 
     <div class="progress progress-bugs">
       <div class="progress-bar" role="progressbar" aria-valuenow="{{complete.percentage}}" aria-valuemin="0" aria-valuemax="100" style="width: {{complete.percentage}}%;">

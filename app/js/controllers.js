@@ -1,6 +1,18 @@
 // Controllers ----------------------------------------------------------------
 
 angular.module('myApp.controllers', [])
+  .controller('sidebarCtrl', [
+    '$scope',
+    'milestoneService',
+    function ($scope, milestoneService) {
+      $scope.$watch(function() {
+        return milestoneService.milestones;
+      }, function(newVal) {
+        $scope.milestones = newVal;
+      });
+      milestoneService.get();
+    }
+  ])
   .controller('AddCtrl', ['$scope', '$http', 'moment', 'milestoneService',
     function($scope, $http, moment, milestoneService) {
 
@@ -8,7 +20,7 @@ angular.module('myApp.controllers', [])
 
       function reset() {
         $scope.new = {
-          dueDate: new Date()
+          dueDate: moment().day('Friday').toDate()
         };
       }
 
@@ -20,11 +32,13 @@ angular.module('myApp.controllers', [])
         $scope.opened = true;
       };
 
-      $scope.minDate = new Date();
       $scope.dateOptions = {
          'year-format': "'yy'",
          'show-weeks': false
        };
+
+
+       $scope.milestones = milestoneService.milestones;
 
        $scope.submit = function() {
 
@@ -35,8 +49,7 @@ angular.module('myApp.controllers', [])
           .post('/milestone', $scope.new)
           .success(function(data) {
             reset();
-            milestoneService.refresh();
-            // how do we notify milestone service?
+            milestoneService.get();
           });
        };
 
@@ -46,16 +59,23 @@ angular.module('myApp.controllers', [])
 
     function($scope, $http, $rootScope, $routeParams) {
 
-      $scope.m = $rootScope.milestones[$routeParams.id];
+      $scope.m = {};
 
-      // $http
-      //   .get('/milestone/' + $routeParams.id)
-      //   .success(function(data) {
-      //     $scope.m = data
-      //   });
+      $http
+        .get('/milestone/' + $routeParams.id)
+        .success(function(data) {
+          $scope.m = data;
+        });
 
-      $scope.newBugUrl = 'https://bugzilla.mozilla.org/enter_bug.cgi?product=Webmaker' +
+      $scope.newBugUrl = function() {
+        var link = 'https://bugzilla.mozilla.org/enter_bug.cgi?product=Webmaker' +
         '&status_whiteboard=' + encodeURIComponent($scope.m.whiteboard);
+
+        if ($scope.m.defaultComponent) {
+          link += ('&component=' + encodeURIComponent($scope.m.defaultComponent));
+        }
+        return link;
+      };
 
       $scope.bugs = [];
       $scope.complete = {};
@@ -136,19 +156,25 @@ angular.module('myApp.controllers', [])
         };
       });
 
-      $http({
-          method: 'GET',
-          url: '/bug',
-          params: {
-            product: 'Webmaker',
-            whiteboard: $scope.m.whiteboard,
-            limit: 50
-          }
-        })
-        .success(function(data) {
-          console.log(data);
-          $scope.bugs = data;
-        });
+     $scope.$watch('m', function() {
+       if (!$scope.m.whiteboard) {
+         return;
+       }
+       $http({
+           method: 'GET',
+           url: '/bug',
+           params: {
+             product: 'Webmaker',
+             whiteboard: $scope.m.whiteboard,
+             limit: 50
+           }
+         })
+         .success(function (data) {
+           console.log(data);
+           $scope.bugs = data;
+         });
+     });
+
 
     }
   ]);

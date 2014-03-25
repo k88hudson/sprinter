@@ -12,8 +12,7 @@ angular.module('myApp', [
     function($routeProvider) {
 
       $routeProvider.when('/', {
-        templateUrl: 'views/home.html',
-        controller: 'HomeCtrl'
+        templateUrl: 'views/home.html'
       });
 
       $routeProvider.when('/add', {
@@ -43,38 +42,38 @@ angular.module('myApp', [
       // milestoneService.refresh();
 
 
-      $rootScope.milestones = [
-        {
-          id: 0,
-          title: 'Explore MVP',
-          dueDate: 'March 20, 2014',
-          whiteboard: 'explore, mvp'
-        },
-        {
-          id: 1,
-          title: 'Explore R2',
-          dueDate: 'March 28, 2014',
-          whiteboard: 'explore, r2'
-        },
-        {
-          id: 2,
-          title: 'Events R3',
-          dueDate: 'March 20, 2014',
-          whiteboard: 'events2, r3'
-        },
-        {
-          id: 3,
-          title: 'Weblit Integration',
-          dueDate: 'March 28, 2014',
-          whiteboard: 'weblit-integration'
-        },
-        {
-          id: 4,
-          title: 'Tools improvements',
-          dueDate: 'April 15, 2014',
-          whiteboard: 'tools-improvements'
-        }
-      ];
+      // $rootScope.milestones = [
+      //   {
+      //     id: 0,
+      //     title: 'Explore MVP',
+      //     dueDate: 'March 20, 2014',
+      //     whiteboard: 'explore, mvp'
+      //   },
+      //   {
+      //     id: 1,
+      //     title: 'Explore R2',
+      //     dueDate: 'March 28, 2014',
+      //     whiteboard: 'explore, r2'
+      //   },
+      //   {
+      //     id: 2,
+      //     title: 'Events R3',
+      //     dueDate: 'March 20, 2014',
+      //     whiteboard: 'events2, r3'
+      //   },
+      //   {
+      //     id: 3,
+      //     title: 'Weblit Integration',
+      //     dueDate: 'March 28, 2014',
+      //     whiteboard: 'weblit-integration'
+      //   },
+      //   {
+      //     id: 4,
+      //     title: 'Tools improvements',
+      //     dueDate: 'April 15, 2014',
+      //     whiteboard: 'tools-improvements'
+      //   }
+      // ];
 
       // $rootScope.milestones = [
       //   {
