@@ -46,13 +46,13 @@ angular.module('myApp.controllers', [])
 
     function($scope, $http, $rootScope, $routeParams) {
 
-      $scope.m = {};
+      $scope.m = $rootScope.milestones[$routeParams.id];
 
-      $http
-        .get('/milestone/' + $routeParams.id)
-        .success(function(data) {
-          $scope.m = data
-        });
+      // $http
+      //   .get('/milestone/' + $routeParams.id)
+      //   .success(function(data) {
+      //     $scope.m = data
+      //   });
 
       $scope.newBugUrl = 'https://bugzilla.mozilla.org/enter_bug.cgi?product=Webmaker' +
         '&status_whiteboard=' + encodeURIComponent($scope.m.whiteboard);
