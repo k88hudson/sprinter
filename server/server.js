@@ -4,10 +4,38 @@ module.exports = function (env) {
   var db = require('./db')(env.get('db'));
   var bz = require('bz');
 
+  var passport = require('passport');
+  var GitHubStrategy = require('passport-github').Strategy;
+
+  var GITHUB_CLIENT_ID = "--insert-github-client-id-here--"
+  var GITHUB_CLIENT_SECRET = "--insert-github-client-secret-here--";
+
+
   app.use(express.logger('dev'));
   app.use(express.compress());
   app.use(express.json());
   app.use(express.urlencoded());
+
+  passport.serializeUser(function(user, done) {
+    done(null, user);
+  });
+
+  passport.deserializeUser(function(obj, done) {
+    done(null, obj);
+  });
+
+  passport.use(new GitHubStrategy({
+      clientID: GITHUB_CLIENT_ID,
+      clientSecret: GITHUB_CLIENT_SECRET,
+      callbackURL: "http:/localhost:1989/auth/github/callback"
+    },
+    function(accessToken, refreshToken, profile, done) {
+      process.nextTick(function () {
+        return done(null, profile);
+      });
+    }
+  ));
+
 
   // Static files
   app.use(express.static('./app'));

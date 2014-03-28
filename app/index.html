@@ -21,7 +21,7 @@
         <a href="/#/add"><span class="fa fa-plus"></span> Add milestone</a>
       </li>
       <li ng-repeat="m in milestones">
-        <a href="/#/milestone/{{m.id}}">{{m.title}}<span class="sidebar-date">{{m.dueDate | date: 'MMM d h:mm a'}}</span></a>
+        <a href="/#/milestone/{{m.id}}">{{m.title}}<span class="sidebar-date">{{m.dueDate | date: 'MMM d'}}</span></a>
       </li>
     </ul>
   </div>
