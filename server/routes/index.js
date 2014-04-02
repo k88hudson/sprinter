@@ -8,10 +8,10 @@ module.exports = function(env, app, dbInit) {
   });
 
   // auth
-  app.all('/oauth/token', app.oauth.grant());
-  app.get('/test', app.oauth.authorise(), function (req, res) {
-    res.send('Secret area');
-  });
+  // app.all('/oauth/token', app.oauth.grant());
+  // app.get('/test', app.oauth.authorise(), function (req, res) {
+  //   res.send('Secret area');
+  // });
 
 
   app.get('/milestone', db.get.all);
