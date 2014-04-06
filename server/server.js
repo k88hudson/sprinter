@@ -14,7 +14,8 @@ module.exports = function (env) {
   app.use(express.compress());
   app.use(express.json());
   app.use(express.urlencoded());
-  app.use(express.cookieSession({secret:'secret'}));
+  app.use(express.cookieParser('secret'));
+  app.use(express.cookieSession());
   app.use(express.csrf());
 
   // passport.serializeUser(function(user, done) {
@@ -45,10 +46,10 @@ module.exports = function (env) {
   app.get('/config.js', function (req, res) {
     var config = env.get('ANGULAR');
 
-    config.csrf = req.csrf();
+    config.csrf = req.csrfToken();
 
-    res.setHeader('Content-type', 'text/javascript');
-    res.send('window.angularConfig = ' + JSON.stringify(config));
+    res.type('js');
+    res.send('window.angularConfig = ' + JSON.stringify(config) + ';');
   });
 
   require('./routes')(env, app, db);

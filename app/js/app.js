@@ -8,8 +8,16 @@ angular.module('myApp', [
   'myApp.directives',
   'myApp.controllers'
 ])
+  .constant('config', window.angularConfig)
+  .config([
+    '$httpProvider',
+    'config',
+    function ($httpProvider, config) {
+      $httpProvider.defaults.headers.common['X-CSRF-Token'] = config.csrf;
+    }
+  ])
   .config(['$routeProvider',
-    function($routeProvider) {
+    function ($routeProvider) {
 
       $routeProvider.when('/', {
         templateUrl: 'views/home.html'

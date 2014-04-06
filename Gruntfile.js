@@ -19,11 +19,17 @@ module.exports = function (grunt) {
     watch: {
       less: {
         files: ['app/less/**/*.less'],
-        tasks: ['less:development']
+        tasks: ['less:development'],
+        options: {
+          spawn: false
+        }
       },
       server: {
         files: ['server/**/*.js', 'Gruntfile.js'],
-        tasks: ['express']
+        tasks: ['express'],
+        options: {
+          spawn: false
+        }
       }
     },
     express: {

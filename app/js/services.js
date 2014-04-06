@@ -1,7 +1,6 @@
 // Services -------------------------------------------------------------------
 
 angular.module('myApp.services', ['ngResource'])
-  .constant('config', window.angularConfig)
   .constant('moment', window.moment)
   .factory('milestoneService', [
     '$http',
