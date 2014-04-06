@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "postinstall": "bower install; grunt build"
+    "postinstall": "bower install && grunt build"
   },
   "keywords": [],
   "author": "author",
@@ -12,6 +12,15 @@
     "express": "3.4.8",
     "bower": "1.2.8",
     "habitat": "1.1.0",
+    "webmaker-auth": "0.0.8",
+    "bz": "~1.0.0-alpha.5",
+    "sequelize": "~1.7.0",
+    "mysql": "~2.1.1",
+    "node-oauth2-server": "^2.0.2",
+    "passport-github": "^0.1.5",
+    "passport": "^0.2.0"
+  },
+  "devDevependencies": {
     "grunt": "0.4.2",
     "grunt-contrib-jshint": "0.7.2",
     "grunt-jsbeautifier": "0.2.6",
@@ -20,13 +29,7 @@
     "grunt-contrib-watch": "0.5.3",
     "grunt-shell-spawn": "0.3.0",
     "grunt-cli": "~0.1.13",
-    "webmaker-auth": "0.0.8",
-    "bz": "~1.0.0-alpha.5",
-    "sequelize": "~1.7.0",
-    "mysql": "~2.1.1",
-    "node-oauth2-server": "^2.0.2",
-    "passport-github": "^0.1.5",
-    "passport": "^0.2.0"
+    "grunt-express-server": "^0.4.13"
   },
   "engines": {
     "node": ">=0.10"

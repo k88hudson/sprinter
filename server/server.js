@@ -4,37 +4,38 @@ module.exports = function (env) {
   var db = require('./db')(env.get('db'));
   var bz = require('bz');
 
-  var passport = require('passport');
-  var GitHubStrategy = require('passport-github').Strategy;
+  // var passport = require('passport');
+  // var GitHubStrategy = require('passport-github').Strategy;
 
-  var GITHUB_CLIENT_ID = "--insert-github-client-id-here--"
-  var GITHUB_CLIENT_SECRET = "--insert-github-client-secret-here--";
-
+  // var GITHUB_CLIENT_ID = "--insert-github-client-id-here--"
+  // var GITHUB_CLIENT_SECRET = "--insert-github-client-secret-here--";
 
   app.use(express.logger('dev'));
   app.use(express.compress());
   app.use(express.json());
   app.use(express.urlencoded());
+  app.use(express.cookieSession({secret:'secret'}));
+  app.use(express.csrf());
 
-  passport.serializeUser(function(user, done) {
-    done(null, user);
-  });
+  // passport.serializeUser(function(user, done) {
+  //   done(null, user);
+  // });
 
-  passport.deserializeUser(function(obj, done) {
-    done(null, obj);
-  });
+  // passport.deserializeUser(function(obj, done) {
+  //   done(null, obj);
+  // });
 
-  passport.use(new GitHubStrategy({
-      clientID: GITHUB_CLIENT_ID,
-      clientSecret: GITHUB_CLIENT_SECRET,
-      callbackURL: "http:/localhost:1989/auth/github/callback"
-    },
-    function(accessToken, refreshToken, profile, done) {
-      process.nextTick(function () {
-        return done(null, profile);
-      });
-    }
-  ));
+  // passport.use(new GitHubStrategy({
+  //     clientID: GITHUB_CLIENT_ID,
+  //     clientSecret: GITHUB_CLIENT_SECRET,
+  //     callbackURL: "http:/localhost:1989/auth/github/callback"
+  //   },
+  //   function(accessToken, refreshToken, profile, done) {
+  //     process.nextTick(function () {
+  //       return done(null, profile);
+  //     });
+  //   }
+  // ));
 
 
   // Static files
@@ -43,6 +44,8 @@ module.exports = function (env) {
   // Serve up virtual configuration "file"
   app.get('/config.js', function (req, res) {
     var config = env.get('ANGULAR');
+
+    config.csrf = req.csrf();
 
     res.setHeader('Content-type', 'text/javascript');
     res.send('window.angularConfig = ' + JSON.stringify(config));

@@ -22,16 +22,17 @@ module.exports = function (grunt) {
         tasks: ['less:development']
       },
       server: {
-        files: ['server/**/*.js'],
-        tasks: ['shell:runServer']
+        files: ['server/**/*.js', 'Gruntfile.js'],
+        tasks: ['express']
       }
     },
-    shell: {
-      runServer: {
+    express: {
+      dev: {
         options: {
-          async: true
-        },
-        command: 'node server/app.js'
+          script: 'server/app.js',
+          node_env: 'dev',
+          port: ''
+        }
       }
     },
     jshint: {
@@ -58,12 +59,12 @@ module.exports = function (grunt) {
   });
 
   grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-shell-spawn');
   grunt.loadNpmTasks('grunt-jsbeautifier');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-express-server');
 
-  grunt.registerTask('default', ['less', 'shell:runServer', 'watch']);
+  grunt.registerTask('default', ['less', 'express', 'watch']);
 
   // Clean code before a commit
   grunt.registerTask('clean', ['jsbeautifier:modify', 'jshint']);
