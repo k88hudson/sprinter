@@ -77,7 +77,7 @@
     "version": "unspecified",
     "component": "webmaker.org",
     "is_creator_accessible": true,
-    "target_milestone": "---",
+    "target_sprintService": "---",
     "product": "Webmaker",
     "is_confirmed": true
   },
@@ -127,7 +127,7 @@
     "version": "unspecified",
     "component": "webmaker.org",
     "is_creator_accessible": true,
-    "target_milestone": "---",
+    "target_sprintService": "---",
     "product": "Webmaker",
     "is_confirmed": true
   },
@@ -265,7 +265,7 @@
     "version": "unspecified",
     "component": "webmaker.org",
     "is_creator_accessible": true,
-    "target_milestone": "---",
+    "target_sprintService": "---",
     "product": "Webmaker",
     "is_confirmed": true
   },
@@ -331,7 +331,7 @@
     "version": "unspecified",
     "component": "webmaker.org",
     "is_creator_accessible": true,
-    "target_milestone": "---",
+    "target_sprintService": "---",
     "product": "Webmaker",
     "is_confirmed": true
   },
@@ -399,7 +399,7 @@
     "version": "unspecified",
     "component": "webmaker.org",
     "is_creator_accessible": true,
-    "target_milestone": "---",
+    "target_sprintService": "---",
     "product": "Webmaker",
     "is_confirmed": true
   },
@@ -490,7 +490,7 @@
     "version": "unspecified",
     "component": "webmaker.org",
     "is_creator_accessible": true,
-    "target_milestone": "---",
+    "target_sprintService": "---",
     "product": "Webmaker",
     "is_confirmed": true
   },
@@ -582,7 +582,7 @@
     "version": "unspecified",
     "component": "webmaker.org",
     "is_creator_accessible": true,
-    "target_milestone": "---",
+    "target_sprintService": "---",
     "product": "Webmaker",
     "is_confirmed": true
   },
@@ -657,7 +657,7 @@
     "version": "unspecified",
     "component": "webmaker.org",
     "is_creator_accessible": true,
-    "target_milestone": "---",
+    "target_sprintService": "---",
     "product": "Webmaker",
     "is_confirmed": true,
     "blocked": true
@@ -731,7 +731,7 @@
     "version": "unspecified",
     "component": "Profile",
     "is_creator_accessible": true,
-    "target_milestone": "---",
+    "target_sprintService": "---",
     "product": "Webmaker",
     "is_confirmed": true
   },
@@ -818,7 +818,7 @@
     "version": "unspecified",
     "component": "webmaker.org",
     "is_creator_accessible": true,
-    "target_milestone": "---",
+    "target_sprintService": "---",
     "product": "Webmaker",
     "is_confirmed": true
   },
@@ -879,7 +879,7 @@
     "version": "unspecified",
     "component": "webmaker.org",
     "is_creator_accessible": true,
-    "target_milestone": "---",
+    "target_sprintService": "---",
     "product": "Webmaker",
     "is_confirmed": true,
     "blocked": true
@@ -939,7 +939,7 @@
     "version": "unspecified",
     "component": "webmaker.org",
     "is_creator_accessible": true,
-    "target_milestone": "---",
+    "target_sprintService": "---",
     "product": "Webmaker",
     "is_confirmed": true
   },
@@ -989,7 +989,7 @@
     "version": "unspecified",
     "component": "webmaker.org",
     "is_creator_accessible": true,
-    "target_milestone": "---",
+    "target_sprintService": "---",
     "product": "Webmaker",
     "is_confirmed": true
   },
@@ -1050,7 +1050,7 @@
     "version": "unspecified",
     "component": "webmaker.org",
     "is_creator_accessible": true,
-    "target_milestone": "---",
+    "target_sprintService": "---",
     "product": "Webmaker",
     "is_confirmed": true
   },
@@ -1109,7 +1109,7 @@
     "version": "unspecified",
     "component": "webmaker.org",
     "is_creator_accessible": true,
-    "target_milestone": "---",
+    "target_sprintService": "---",
     "product": "Webmaker",
     "is_confirmed": true
   }

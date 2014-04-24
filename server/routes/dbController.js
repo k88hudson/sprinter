@@ -7,7 +7,7 @@ module.exports = function(db) {
         var limit = req.query.limit || 30;
         var order = req.query.order || 'dueDate';
 
-        db.milestone
+        db.sprint
           .findAll({
             limit: limit,
             order: order
@@ -19,7 +19,7 @@ module.exports = function(db) {
       },
       id: function(req, res, next) {
 
-        db.milestone
+        db.sprint
           .find(req.params.id)
           .success(function(data) {
             res.json(data);
@@ -33,7 +33,7 @@ module.exports = function(db) {
 
       // Authentication todo
 
-      db.milestone
+      db.sprint
         .create(req.body)
         .success(function(data) {
           res.json(data);
@@ -45,17 +45,17 @@ module.exports = function(db) {
       var id = req.params.id;
       var updatedAttributes = req.body;
 
-      // First, find the milestone
-      db.milestone
+      // First, find the sprint
+      db.sprint
         .find(id)
-        .success(function(milestoneInstance) {
+        .success(function(sprintInstance) {
 
           // Not found
-          if (!milestoneInstance) {
-            return res.send(404, 'No milestone found for id ' + id);
+          if (!sprintInstance) {
+            return res.send(404, 'No sprint found for id ' + id);
           }
 
-          milestoneInstance
+          sprintInstance
             .updateAttributes(updatedAttributes)
             .success(function(data) {
               res.json(data);
@@ -71,21 +71,21 @@ module.exports = function(db) {
     delete: function(req, res, next) {
       var id = req.params.id;
 
-      db.milestone
+      db.sprint
         .find(id)
-        .success(function(milestoneInstance) {
+        .success(function(sprintInstance) {
 
           // No event
-          if (!milestoneInstance) {
+          if (!sprintInstance) {
             return res.send(404, 'No event found for id ' + id);
           }
 
           // Authentication
-          if (!isAuthorized(req, milestoneInstance)) {
-            return res.send(403, 'You are not authorized to edit this milestone');
+          if (!isAuthorized(req, sprintInstance)) {
+            return res.send(403, 'You are not authorized to edit this sprint');
           }
 
-          milestoneInstance
+          sprintInstance
             .destroy()
             .success(function(data) {
               res.json(data);

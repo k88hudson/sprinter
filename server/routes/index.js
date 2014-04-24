@@ -14,12 +14,12 @@ module.exports = function(env, app, dbInit) {
   // });
 
 
-  app.get('/milestone', db.get.all);
-  app.get('/milestone/:id', db.get.id);
+  app.get('/sprint', db.get.all);
+  app.get('/sprint/:id', db.get.id);
 
   // Protected routes
-  app.post('/milestone', db.post);
-  app.put('/milestone/:id', db.put);
-  app.delete('/milestone/:id', db.delete);
+  app.post('/sprint', db.post);
+  app.put('/sprint/:id', db.put);
+  app.delete('/sprint/:id', db.delete);
 
 };

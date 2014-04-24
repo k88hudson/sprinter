@@ -3,18 +3,18 @@
 angular.module('myApp.controllers', [])
   .controller('sidebarCtrl', [
     '$scope',
-    'milestoneService',
-    function ($scope, milestoneService) {
+    'sprintService',
+    function ($scope, sprintService) {
       $scope.$watch(function() {
-        return milestoneService.milestones;
+        return sprintService.sprints;
       }, function(newVal) {
-        $scope.milestones = newVal;
+        $scope.sprints = newVal;
       });
-      milestoneService.get();
+      sprintService.get();
     }
   ])
-  .controller('AddCtrl', ['$scope', '$http', 'moment', 'milestoneService',
-    function($scope, $http, moment, milestoneService) {
+  .controller('AddCtrl', ['$scope', '$http', 'moment', 'sprintService',
+    function($scope, $http, moment, sprintService) {
 
       // The default dueDate should be today
 
@@ -25,6 +25,24 @@ angular.module('myApp.controllers', [])
       }
 
       reset();
+
+      $scope.getRepoInfo = function() {
+        $http
+          .get('/github/milestones', {
+            params: {
+              repo: $scope.new.repo
+            }
+          })
+          .success(function (data) {
+            console.log(data);
+            if (data.length) {
+              $scope.repoMilestones = data;
+            } else {
+              delete $scope.repoMilestones;
+            }
+
+          });
+      };
 
       $scope.open = function($event) {
         $event.preventDefault();
@@ -37,8 +55,7 @@ angular.module('myApp.controllers', [])
          'show-weeks': false
        };
 
-
-       $scope.milestones = milestoneService.milestones;
+       $scope.sprints = sprintService.sprints;
 
        $scope.submit = function() {
 
@@ -46,23 +63,28 @@ angular.module('myApp.controllers', [])
         $scope.new.dueDate = moment($scope.new.dueDate).hour(16).startOf('hour').toDate();
 
         $http
-          .post('/milestone', $scope.new)
+          .post('/sprint', $scope.new)
           .success(function(data) {
             reset();
-            milestoneService.get();
+            sprintService.get();
+          })
+          .error(function(err) {
+            console.log(err);
           });
        };
 
+       $scope.activeTab = 'bugzilla';
+
     }
   ])
-  .controller('MilestoneCtrl', ['$scope', '$http', '$rootScope', '$routeParams',
+  .controller('SprintCtrl', ['$scope', '$http', '$rootScope', '$routeParams',
 
     function($scope, $http, $rootScope, $routeParams) {
 
       $scope.m = {};
 
       $http
-        .get('/milestone/' + $routeParams.id)
+        .get('/sprint/' + $routeParams.id)
         .success(function(data) {
           $scope.m = data;
         });

@@ -28,9 +28,9 @@ angular.module('myApp', [
         controller: 'AddCtrl'
       });
 
-      $routeProvider.when('/milestone/:id', {
-        templateUrl: 'views/milestone.html',
-        controller: 'MilestoneCtrl'
+      $routeProvider.when('/sprint/:id', {
+        templateUrl: 'views/sprint.html',
+        controller: 'SprintCtrl'
       });
 
       $routeProvider.otherwise({
@@ -40,17 +40,17 @@ angular.module('myApp', [
   ])
   .run([
     '$rootScope',
-    'milestoneService',
-    function ($rootScope, milestoneService) {
+    'sprintService',
+    function ($rootScope, sprintService) {
       // Jump to top of viewport when new views load
       $rootScope.$on('$locationChangeSuccess', function(event) {
         window.scrollTo(0, 0);
       });
 
-      // milestoneService.refresh();
+      // sprintService.refresh();
 
 
-      // $rootScope.milestones = [
+      // $rootScope.sprints = [
       //   {
       //     id: 0,
       //     title: 'Explore MVP',
@@ -83,7 +83,7 @@ angular.module('myApp', [
       //   }
       // ];
 
-      // $rootScope.milestones = [
+      // $rootScope.sprints = [
       //   {
       //     id: 0,
       //     title: 'Events MVP',

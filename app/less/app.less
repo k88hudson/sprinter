@@ -1,4 +1,5 @@
 @import '../bower_components/makerstrap/less/makerstrap';
+@makerstrap-bower-path: '../bower_components';
 
 // Font Awesome ---------------------------------------------------------------
 // Use http://fortawesome.github.io/Font-Awesome/cheatsheet/ as a guide
@@ -51,6 +52,8 @@ header {
 
 @badge-border-radius: 4px;
 
+@well-bg: #FFF;
+@well-border: #DDD;
 
 /*********************************************************
 * Sidebar
@@ -65,6 +68,18 @@ header {
 @container-large-desktop:      ((1140px + @grid-gutter-width) - @sidebar-width);
 @container-large-desktop:      ((1140px + @grid-gutter-width) - @sidebar-width);
 
+/*********************************************************
+* Helpers
+*/
+
+.flex-center {
+  .flex-display();
+  .align-items(center);
+  height: 100%;
+  .flex-inner {
+    width: 100%;
+  }
+}
 
 /*********************************************************
 * Structure
@@ -74,6 +89,10 @@ header {
 //   display: flex;
 //   align-items: stretch;
 // }
+
+[ng-view] {
+  height: 100%;
+}
 
 .section-main {
   overflow: auto;
@@ -256,7 +275,6 @@ header {
 * Angular UI overrides
 */
 
-
 .calendar-picker td {
   border: 1px solid #EEE;
 }
@@ -267,4 +285,90 @@ header {
 
 .calendar-picker .btn-default:hover {
   background: #EEE;
+}
+
+/*********************************************************
+* Well
+*/
+
+.well {
+  box-shadow: none;
+}
+
+.well-github {
+  border: 1px solid @green;
+}
+
+.btn-github {
+  background: #FFF;
+  color: @green;
+  border: 1px solid @green;
+}
+
+.well-bugzilla {
+  border: 1px solid @blue;
+}
+
+.header-well {
+ font-weight: 300;
+ margin-top: 0;
+ .well-github & {
+  color: @brand-primary;
+ }
+ .well-bugzilla & {
+  color: @blue;
+ }
+}
+
+.btn-bugzilla {
+  background: #FFF;
+  color: @blue;
+  border: 1px solid @blue;
+}
+
+label {
+  font-weight: normal;
+}
+
+.tab-container {
+  z-index: 1;
+  margin-bottom: 15px;
+}
+
+/*********************************************************
+* Add form
+*/
+
+.add-form {
+  h3 {
+    font-size: 36px;
+    .text-light;
+  }
+  h3, p, .input-group {
+    margin-bottom: 20px;
+  }
+}
+
+.bugzilla-bg {
+  background: rgb(215,211,200); /* Old browsers */
+  background: -moz-linear-gradient(45deg,  rgba(215,211,200,1) 0%, rgba(246,244,236,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,rgba(215,211,200,1)), color-stop(100%,rgba(246,244,236,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(45deg,  rgba(215,211,200,1) 0%,rgba(246,244,236,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(45deg,  rgba(215,211,200,1) 0%,rgba(246,244,236,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(45deg,  rgba(215,211,200,1) 0%,rgba(246,244,236,1) 100%); /* IE10+ */
+  background: linear-gradient(45deg,  rgba(215,211,200,1) 0%,rgba(246,244,236,1) 100%); /* W3C */
+}
+
+/*********************************************************
+* Tabs
+*/
+
+.nav-tabs {
+  position: absolute;
+  top: 20px;
+}
+
+.tab-pane {
+  .animated;
+  .slideInLeft;
 }

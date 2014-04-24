@@ -2,17 +2,17 @@
 
 angular.module('myApp.services', ['ngResource'])
   .constant('moment', window.moment)
-  .factory('milestoneService', [
+  .factory('sprintService', [
     '$http',
     '$rootScope',
     function($http, $rootScope) {
       var service = {};
-      service.milestones = [];
+      service.sprints = [];
       service.get = function() {
         $http
-          .get('/milestone')
+          .get('/sprint')
           .success(function(data) {
-            service.milestones = data;
+            service.sprints = data;
           });
       };
 

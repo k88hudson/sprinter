@@ -31,15 +31,15 @@ module.exports = function(options) {
 
   // Import models
   var Team = sequelize.import(__dirname + '/team.js');
-  var Milestone = sequelize.import(__dirname + '/milestone.js');
+  var Sprint = sequelize.import(__dirname + '/sprint.js');
 
   // Associations
-  Team.hasMany(Milestone);
+  Team.hasMany(Sprint);
 
   // Sync
   sequelize.sync().complete(function (err) {
     if (err) {
-      console.log(err);
+      console.log(err.stack);
     } else {
       console.log('Successfully synced.')
     }
@@ -47,7 +47,7 @@ module.exports = function(options) {
 
   // Export models
   return {
-    milestone: Milestone,
+    sprint: Sprint,
     team: Team
   };
 
