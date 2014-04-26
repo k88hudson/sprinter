@@ -150,7 +150,7 @@ angular.module('myApp.controllers', [])
         var bugsResolved = Math.floor($scope.bugs.filter(isResolved).length);
         var totalBugs =  $scope.bugs.length;
         $scope.complete = {
-          percentage:  (bugsResolved / totalBugs) * 100,
+          percentage:  Math.round(bugsResolved / totalBugs * 100),
           resolved: bugsResolved,
           total: totalBugs
         };
