@@ -103,8 +103,10 @@
             <div class="col-xs-6">
               <div class="form-group" ng-show="repoSprints">
                 <label>Github Sprint</label>
-                <select ng-model="new.repoMilestone" class="form-control">
-                  <option ng-repeat="milestone in repoMilestones" value="{{milestone.id}}">{{milestone.title}}</option>
+                <select
+                  ng-model="new.repoMilestone"
+                  class="form-control"
+                  ng-options="milestone.title as milestone.id for milestone in repoMilestones">
                 </select>
               </div>
             </div>

@@ -34,13 +34,12 @@ angular.module('myApp.controllers', [])
             }
           })
           .success(function (data) {
-            console.log(data);
             if (data.length) {
               $scope.repoMilestones = data;
             } else {
-              delete $scope.repoMilestones;
+              $scope.repoMilestones = [];
             }
-
+            console.log($scope);
           });
       };
 
