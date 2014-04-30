@@ -1,0 +1,66 @@
+<div class="flex-center {{activeTab}}-bg">
+  <div class="flex-inner">
+    <div class="container add-form">
+    <tabset>
+        <tab heading="1">
+          <h3>Name your sprint</h3>
+          <p><input class="form-control add-form"></p>
+          <p><button class="btn btn-default pull-right">Continue</button></p>
+        </tab>
+        <tab heading="2">
+          <div class="form-group">
+            <h3>Due date</h3>
+
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                datepicker-popup="longDate"
+                ng-model="new.dueDate"
+                is-open="opened"
+                min="minDate"
+                max="'2015-06-22'"
+                datepicker-options="dateOptions"
+                close-text="Close">
+              <span class="input-group-btn">
+                <a class="btn btn-default" ng-click="open($event)"><i class="fa fa-calendar"></i></a>
+              </span>
+            </div>
+
+            <p><button class="btn btn-default pull-right">Continue</button></p>
+
+          </div>
+        </tab>
+        <tab heading="3">
+          <h3>Bugzilla</h3>
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="form-group">
+                <label>Whiteboard search</label>
+                <input ng-model="new.whiteboard" class="form-control">
+                <div class="help-block">eg. events2, mvp</div>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="form-group">
+                <label>Default Component</label>
+                <select ng-model="new.defaultComponent" class="form-control">
+                  <option value="">None</option>
+                  <option value="webmaker.org">Webmaker.org / Explore</option>
+                  <option value="Events">Events</option>
+                  <option value="Thimble">Thimble</option>
+                  <option value="Popcorn Maker">Popcorn Maker</option>
+                  <option value="X-Ray Goggles">Goggles</option>
+                  <option value="Login">Login</option>
+                  <option value="Profile">Profile</option>
+                  <option value="MakeAPI">MakeAPI</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+</div>
+

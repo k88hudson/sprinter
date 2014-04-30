@@ -12,9 +12,37 @@ input[type="checkbox"]:checked + .user-story-text {
   text-decoration: line-through;
 }
 
-html, body, .wrapper {
+html,
+body {
  height: 100%;
 }
+/*********************************************************
+* Flexbox
+*/
+
+.flex-outer {
+  .flex-display();
+  .flex-direction(column);
+  height: 100%;
+  .flex-inner,
+  .flex-bottom {
+    .flex-display();
+    .flex-grow(1);
+    overflow-y: auto;
+  }
+  .flex-inner {
+    > div {
+      width: 100%;
+    }
+  }
+  .flex-top {
+    .flex(none);
+  }
+}
+
+/*********************************************************
+* Helpers
+*/
 
 // Global helpers
 .text-monospace {
@@ -40,6 +68,12 @@ header {
 
 .btn-add-bug {
   margin-left: 1em;
+}
+
+
+// Nav
+.navbar {
+ margin-bottom: 0;
 }
 
 /*********************************************************
@@ -90,20 +124,13 @@ header {
 //   align-items: stretch;
 // }
 
-[ng-view] {
-  height: 100%;
-}
-
 .section-main {
-  overflow: auto;
+  float: left;
   min-width: 67%;
-  height: 100%;
 }
 
-.section-sidebar,
-.sidebar-spacer {
+.section-sidebar {
   float: left;
-  min-height: 1px;
   .hidden-xs();
   width: 33%;
   max-width: @sidebar-width;
@@ -114,14 +141,15 @@ header {
 */
 
 .section-sidebar {
-  position: fixed;
-  top: 0;
-  bottom: 0;
+  // position: fixed;
+  // top: 0;
+  // bottom: 0;
   overflow-y: auto;
   background: #333;
 }
 
 .section-sidebar-nav {
+  width: 100%;
   position: relative;
   z-index: 1;
 

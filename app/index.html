@@ -7,23 +7,34 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700" rel="stylesheet">
   <link rel="stylesheet" href="compiled/app.min.css">
 </head>
-<body>
-
-  <div class="wrapper">
-    <div class="sidebar-spacer"></div>
-    <div class="section-main">
+<body class="flex-outer">
+<!--   <div class="flex-top">
+    <nav class="navbar navbar-default">
+      <div class="container">
+      <ul class="navbar-header">
+        <li>Hi</li>
+      </ul>
+      </div>
+    </nav>
+  </div> -->
+  <div class="flex-bottom">
+    <aside class="section-sidebar flex-inner" ng-controller="sidebarCtrl">
+      <ul class="section-sidebar-nav nav nav-stacked">
+        <li>
+          <a ng-hide="user" href="/auth"><span class="fa fa-fw fa-github"></span> Login</a>
+          <a ng-show="user"><span class="fa fa-fw fa-github"></span><!-- <img class="user-info-avatar" ng-src="{{user.avatar_url}}"> --> {{user.login}}</a>
+        </li>
+        <li>
+          <a href="/#/add"><span class="fa fa-fw fa-plus"></span> Add sprint</a>
+        </li>
+        <li ng-repeat="m in sprints">
+          <a href="/#/sprint/{{m.id}}">{{m.title}}<span class="sidebar-date">{{m.dueDate | date: 'MMM d'}}</span></a>
+        </li>
+      </ul>
+    </aside>
+    <main class="section-main flex-inner">
       <div ng-view></div>
-    </div>
-  </div>
-  <div class="section-sidebar" ng-controller="sidebarCtrl">
-    <ul class="section-sidebar-nav nav nav-stacked">
-      <li>
-        <a href="/#/add"><span class="fa fa-plus"></span> Add sprint</a>
-      </li>
-      <li ng-repeat="m in sprints">
-        <a href="/#/sprint/{{m.id}}">{{m.title}}<span class="sidebar-date">{{m.dueDate | date: 'MMM d'}}</span></a>
-      </li>
-    </ul>
+    </main>
   </div>
 
   <script src="/config.js"></script>

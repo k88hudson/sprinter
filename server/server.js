@@ -82,8 +82,22 @@ module.exports = function (env) {
     });
   }
 
+
+  // REMOVE
   app.get('/test', function(req, res) {
     console.log(req.session.token);
+    request.get({
+      url: 'https://api.github.com/user',
+      headers: {
+        'Authorization': 'token ' + req.session.token,
+        'User-Agent': 'Sprinter'
+      }
+    }, function(err, response, body) {
+      res.send(JSON.parse(body));
+    });
+  });
+
+  app.get('/user', function(req, res) {
     request.get({
       url: 'https://api.github.com/user',
       headers: {

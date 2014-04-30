@@ -40,12 +40,19 @@ angular.module('myApp', [
   ])
   .run([
     '$rootScope',
+    '$http',
     'sprintService',
-    function ($rootScope, sprintService) {
+    function ($rootScope, $http, sprintService) {
       // Jump to top of viewport when new views load
       $rootScope.$on('$locationChangeSuccess', function(event) {
         window.scrollTo(0, 0);
       });
+
+      $http
+        .get('/user')
+        .success(function (user) {
+          $rootScope.user = user;
+        });
 
       // sprintService.refresh();
 
