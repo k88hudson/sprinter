@@ -20,9 +20,10 @@
     "passport-github": "^0.1.5",
     "passport": "^0.2.0",
     "simple-oauth2": "^0.1.9",
-    "request": "^2.34.0"
+    "request": "^2.34.0",
+    "sqlite3": "^2.2.3"
   },
-  "devDevependencies": {
+  "devDependencies": {
     "grunt": "0.4.2",
     "grunt-contrib-jshint": "0.7.2",
     "grunt-jsbeautifier": "0.2.6",
