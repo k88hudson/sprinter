@@ -22,7 +22,7 @@
     "simple-oauth2": "^0.1.9",
     "request": "^2.34.0"
   },
-  "devDevependencies": {
+  "devDependencies": {
     "grunt": "0.4.2",
     "grunt-contrib-jshint": "0.7.2",
     "grunt-jsbeautifier": "0.2.6",
