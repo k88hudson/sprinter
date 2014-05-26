@@ -8,6 +8,7 @@ module.exports = function(sequelize, t) {
   // teamID
   // defaultComponent
   // dueDate
+  // archived
   // createdAt
   // updatedAt
 
@@ -23,6 +24,7 @@ module.exports = function(sequelize, t) {
     },
     description: t.TEXT,
     defaultComponent: t.STRING,
-    dueDate: t.DATE
+    dueDate: t.DATE,
+    archived: t.BOOLEAN
   });
 };

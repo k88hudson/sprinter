@@ -82,10 +82,21 @@ angular.module('myApp.controllers', [])
 
       $scope.m = {};
 
+      $scope.archive = function() {
+        $http
+          .put('/sprint/' + $routeParams.id, {
+            archived: true
+          })
+          .success(function(data) {
+            $scope.m = data;
+          });
+      };
+
       $http
         .get('/sprint/' + $routeParams.id)
         .success(function(data) {
           $scope.m = data;
+          $rootScope.title = data.title;
         });
 
       $scope.newBugUrl = function() {

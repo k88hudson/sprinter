@@ -6,11 +6,20 @@ module.exports = function(db) {
       all: function(req, res, next) {
         var limit = req.query.limit || 30;
         var order = req.query.order || 'dueDate';
+        var where = {};
+
+        if (!req.query.archived) {
+          where.archived = {
+            // Only sprints that aren't archived
+            ne: 1
+          };
+        }
 
         db.sprint
           .findAll({
             limit: limit,
-            order: order
+            order: order,
+            where: where
           })
           .success(function(data) {
             res.json(data);

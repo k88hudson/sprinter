@@ -1,7 +1,11 @@
 <div class="container-fluid">
   <header>
-    <h1 class="feature-title">{{m.title}}</h1>
-    <h3 class="feature-due-date">Due {{m.dueDate | timeago}} <a href="{{newBugUrl()}}" class="btn btn-primary btn-add-bug" target="_blank">Add bug</a></h3>
+    <hgroup>
+      <h1 class="feature-title">{{m.title}}<span ng-if="m.archived"> (Archived)</span></h1>
+      <h3 class="feature-due-date">
+        Due {{m.dueDate | timeago}} <a href="{{newBugUrl()}}" class="btn btn-primary btn-add-bug" target="_blank">Add bug</a> <a class="btn btn-danger" href="#" ng-click="archive()">Archive</a>
+     </h3>
+    </hgroup>
 
     <div class="progress progress-bugs">
       <div class="progress-bar" role="progressbar" aria-valuenow="{{complete.percentage}}" aria-valuemin="0" aria-valuemax="100" style="width: {{complete.percentage}}%;">
@@ -12,7 +16,9 @@
   </header>
 
   <row>
+
     <div class="bugz col-lg-10 col-lg-offset-1">
+      <p>Whiteboard: <code>{{m.whiteboard}}</code></p>
       <div class="bugs-loading" ng-hide="bugs">
         <span class="fa fa-cog fa-spin"></span><span class="sr-only">Loading bugs</span>
       </div>
