@@ -198,7 +198,7 @@ angular.module('myApp.controllers', [])
            params: {
              product: 'Webmaker',
              whiteboard: $scope.m.whiteboard,
-             limit: 50
+             limit: 200
            }
          })
          .success(function (data) {
