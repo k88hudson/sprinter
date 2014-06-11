@@ -6,6 +6,7 @@
   <title>Bugz - {{title}}</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700" rel="stylesheet">
   <link rel="stylesheet" href="compiled/app.min.css">
+  <link rel="icon" type="image/png" href="/img/favicon.ico">
 </head>
 <body class="flex-outer">
 <!--   <div class="flex-top">
@@ -20,7 +21,7 @@
   <div class="flex-bottom">
     <aside class="section-sidebar flex-inner" ng-controller="sidebarCtrl">
       <ul class="section-sidebar-nav nav nav-stacked">
-        <li>
+        <li class="hidden">
           <a ng-hide="user" href="/auth"><span class="fa fa-fw fa-github"></span> Login</a>
           <a ng-show="user"><span class="fa fa-fw fa-github"></span><!-- <img class="user-info-avatar" ng-src="{{user.avatar_url}}"> --> {{user.login}}</a>
         </li>
