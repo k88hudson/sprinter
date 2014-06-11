@@ -142,6 +142,11 @@ angular.module('myApp.controllers', [])
           bz: 'summary'
         },
         {
+          name: 'Whiteboard',
+          bz: 'whiteboard',
+          class: 'visible-lg'
+        },
+        {
           name: 'Assigned',
           bz: 'assigned_to_detail.real_name'
         },

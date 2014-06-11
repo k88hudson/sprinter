@@ -18,7 +18,12 @@
   <row>
 
     <div class="bugz col-lg-10 col-lg-offset-1">
-      <p>Whiteboard: <code>{{m.whiteboard}}</code></p>
+      <p>
+        <form class="form-inline">
+          <span class="space-right">Whiteboard: <code>{{m.whiteboard}}</code></span>
+          <input placeholder="Filter whiteboard" class="form-control form-inline" ng-model="filterWhiteboard">
+        </form>
+      </p>
       <div class="bugs-loading" ng-hide="bugs">
         <span class="fa fa-cog fa-spin"></span><span class="sr-only">Loading bugs</span>
       </div>
@@ -26,13 +31,13 @@
       <table ng-show="bugs" class="table bug-table">
         <thead>
           <tr>
-            <th ng-repeat="field in fields" ng-click="setOrderBy(field.bz)">
+            <th ng-repeat="field in fields" ng-click="setOrderBy(field.bz)" ng-class="field.class">
               <span class="fa fa-sort"></span> {{field.name}}
             </th>
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="bug in bugs | orderBy:[orderDir + orderField, '-assignedTo']"
+          <tr ng-repeat="bug in bugs | orderBy:[orderDir + orderField, '-assignedTo'] | filter: filterWhiteboard : whiteboard"
               ng-class="{'bug-resolved': bug.resolution, 'bug-blocked': bug.blocked}"
               ng-hide="bug.resolution === 'DUPLICATE'">
             <td>{{bug.last_change_time | timeago}}</td>
@@ -40,6 +45,7 @@
             <td>
               {{bug.summary}}
             </td>
+            <td class="visible-lg small text-monospace">{{bug.whiteboard}}</td>
             <td>{{bug.assigned_to_detail.real_name | nameFilter}}</td>
             <td>{{bug.status}}</td>
           </tr>

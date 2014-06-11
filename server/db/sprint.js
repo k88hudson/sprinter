@@ -25,6 +25,9 @@ module.exports = function(sequelize, t) {
     description: t.TEXT,
     defaultComponent: t.STRING,
     dueDate: t.DATE,
-    archived: t.BOOLEAN
+    archived: {
+      type: t.BOOLEAN,
+      default: 0
+    }
   });
 };
