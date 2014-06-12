@@ -133,7 +133,7 @@ module.exports = function (env) {
 
 
   // bz
-  var bugzilla = bz.createClient();
+  var bugzilla = env.get('OFFLINE') ? require('../offline/bz.js') : bz.createClient();
   app.get('/bug', function (req, res, next) {
     bugzilla.searchBugs(req.query, function(err, bugs) {
       if (err) {

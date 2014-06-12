@@ -21,7 +21,8 @@
       <p>
         <form class="form-inline">
           <span class="space-right">Whiteboard: <code>{{m.whiteboard}}</code></span>
-          <input placeholder="Filter whiteboard" class="form-control form-inline" ng-model="filterWhiteboard">
+          <input placeholder="Filter whiteboard" class="form-control form-inline" ng-model="bugFilter.whiteboard">
+          <input placeholder="Filter assigned" class="form-control form-inline" ng-model="bugFilter.assigned_to_detail.real_name">
         </form>
       </p>
       <div class="bugs-loading" ng-hide="bugs">
@@ -37,7 +38,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="bug in bugs | orderBy:[orderDir + orderField, '-assignedTo'] | filter: filterWhiteboard : whiteboard"
+          <tr ng-repeat="bug in bugs | orderBy:[orderDir + orderField, '-assignedTo'] | filter:bugFilter"
               ng-class="{'bug-resolved': bug.resolution, 'bug-blocked': bug.blocked}"
               ng-hide="bug.resolution === 'DUPLICATE'">
             <td>{{bug.last_change_time | timeago}}</td>
