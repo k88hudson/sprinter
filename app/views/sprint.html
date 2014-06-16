@@ -44,7 +44,7 @@
             <td>{{bug.last_change_time | timeago}}</td>
             <td class="text-monospace"> <a href="https://bugzilla.mozilla.org/show_bug.cgi?id={{bug.id}}" target="_blank">#{{bug.id}}</a></td>
             <td>
-              {{bug.summary}}
+              {{bug.summary}} <span ng-if="bug.blocked">(blocked)</span>
             </td>
             <td class="visible-lg small text-monospace">{{bug.whiteboard}}</td>
             <td>{{bug.assigned_to_detail.real_name | nameFilter}}</td>
