@@ -164,13 +164,23 @@ module.exports = function (env) {
     bugzilla.searchBugs({
       'f1': 'requestees.login_name',
       'v1': req.query.user,
-      'o1': 'equals'
+      'o1': 'substring'
     }, function (err, bugs) {
       if (err) {
         return next(err);
       }
       var flags = [];
+      console.log(bugs);
       bugs.forEach(function (bug) {
+        // Reviews don't show up for some reason...
+        if (!bug.flags.length) {
+          bug.flags.push({
+            creation_date: bug.last_change_time,
+            requestee: req.query.user,
+            setter: 'REVIEW',
+            status: '?'
+          });
+        }
         bug.flags.forEach(function (flag) {
           flag.bug = JSON.parse(JSON.stringify(bug));
           flags.push(flag);

@@ -1,22 +1,32 @@
 <header>
   <div class="container">
-     <h1>My Dashboard</h1>
+    <h1 class="feature-title">My Dashboard</h1>
+    <div class="form-group">
+      <label class="sr-only" for="bugzilla_email">Bugzilla email</label>
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+          <div class="input-group">
+            <input class="form-control" name="bugzilla_email" ng-model="bugzillaEmail" placeholder="Your Bugzilla email">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button" ng-click="onEmailChange(bugzillaEmail)">Update</button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </header>
 
 <div class="container">
-  <div class="form-group">
-    <div class="alert alert-info"> <span class="fa fa-warning"></span> Note: Due to an unresolved issue, this currently only shows <code>needinfo</code> flags</div>
-    <label class="sr-only" for="bugzilla_email">Bugzilla email</label>
-    <input class="form-control" name="bugzilla_email" ng-model="bugzillaEmail" placeholder="Your Bugzilla email" ng-change="onEmailChange(bugzillaEmail)">
+  <div class="alert alert-info">
+    <span class="fa fa-warning"></span> Note: Due to an unresolved issue, this does not accurately show requested by/date information for requested reviews.
   </div>
-
   <table class="table">
     <th>Date</th>
     <th>Requested by</th>
     <th>Bug</th>
     <th>Description</th>
-    <tr ng-repeat="flag in flags | orderBy: creation_date">
+    <tr ng-repeat="flag in flags | orderBy:'-creation_date'">
       <td>{{ flag.creation_date | timeago }}</td>
       <td>
         <a href="https://bugzilla.mozilla.org/show_bug.cgi?id={{flag.bug.id}}">
