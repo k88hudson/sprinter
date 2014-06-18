@@ -13,7 +13,6 @@ module.exports = function(env, app, dbInit) {
   //   res.send('Secret area');
   // });
 
-
   app.get('/sprint', db.get.all);
   app.get('/sprint/:id', db.get.id);
 

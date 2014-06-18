@@ -3,6 +3,7 @@ angular.module('myApp', [
   'ngResource',
   'ngAnimate',
   'ui.bootstrap',
+  'LocalStorageModule',
   'myApp.filters',
   'myApp.services',
   'myApp.directives',
@@ -20,7 +21,8 @@ angular.module('myApp', [
     function ($routeProvider) {
 
       $routeProvider.when('/', {
-        templateUrl: 'views/home.html'
+        templateUrl: 'views/home.html',
+        controller: 'HomeCtrl'
       });
 
       $routeProvider.when('/add', {

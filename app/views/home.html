@@ -1,1 +1,30 @@
+<header>
+  <div class="container">
+     <h1>My Dashboard</h1>
+  </div>
+</header>
 
+<div class="container">
+  <div class="form-group">
+    <label class="sr-only" for="bugzilla_email">Bugzilla email</label>
+    <input class="form-control" name="bugzilla_email" ng-model="bugzillaEmail" placeholder="Your Bugzilla email" ng-change="onEmailChange(bugzillaEmail)">
+  </div>
+
+  <table class="table">
+    <th>Date</th>
+    <th>Requested by</th>
+    <th>Bug</th>
+    <th>Description</th>
+    <tr ng-repeat="flag in flags | orderBy:creation_date">
+      <td>{{ flag.creation_date | timeago }}</td>
+      <td>
+        <a href="https://bugzilla.mozilla.org/show_bug.cgi?id={{flag.bug.id}}">
+          {{ flag.setter}}
+        </a>
+      </td>
+      <td>#{{flag.bug.id}}</td>
+      <td>{{flag.bug.summary}}</td>
+    </tr>
+    </table>
+  </ul>
+</div>

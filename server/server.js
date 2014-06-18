@@ -160,6 +160,25 @@ module.exports = function (env) {
       res.send(output);
     })
   });
+  app.get('/flags', function (req, res, next) {
+    bugzilla.searchBugs({
+      'f1': 'requestees.login_name',
+      'v1': req.query.user,
+      'o1': 'equals'
+    }, function (err, bugs) {
+      if (err) {
+        return next(err);
+      }
+      var flags = [];
+      bugs.forEach(function (bug) {
+        bug.flags.forEach(function (flag) {
+          flag.bug = JSON.parse(JSON.stringify(bug));
+          flags.push(flag);
+        })
+      });
+      return res.send(flags);
+    });
+  });
 
   //Errors
   app.use(function errorHandler (err, req, res, next) {
@@ -174,7 +193,7 @@ module.exports = function (env) {
     }
 
     res.send(500, {
-      error: err
+      error: err.message
     });
 
   });

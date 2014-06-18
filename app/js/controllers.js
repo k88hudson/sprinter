@@ -13,6 +13,38 @@ angular.module('myApp.controllers', [])
       sprintService.get();
     }
   ])
+  .controller('HomeCtrl', ['$scope', '$http', 'localStorageService',
+    function ($scope, $http, localStorageService) {
+      $scope.flagList = function (flags) {
+        return flags.map(function (flag) {
+          return flag.setter;
+        }).join(', ');
+      };
+
+      $scope.bugzillaEmail = localStorageService.get('bugzilla_email');
+
+      $scope.$watch('bugzillaEmail', function() {
+        localStorageService.set('bugzilla_email', $scope.bugzillaEmail);
+      });
+
+      $scope.onEmailChange = function (email) {
+         $http({
+            method: 'GET',
+            url: '/flags',
+            params: {
+              user: email
+            }
+          })
+          .success(function (data) {
+            console.log(data);
+            $scope.flags = data;
+          });
+      };
+
+      // Init
+      $scope.onEmailChange($scope.bugzillaEmail);
+    }
+  ])
   .controller('AddCtrl', ['$scope', '$http', 'moment', 'sprintService',
     function($scope, $http, moment, sprintService) {
 
