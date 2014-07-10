@@ -124,6 +124,7 @@ module.exports = function (env) {
     var config = env.get('ANGULAR');
 
     config.csrf = req.csrfToken();
+    config.ga_id = env.get('GA_ID');
 
     res.type('js');
     res.send('window.angularConfig = ' + JSON.stringify(config) + ';');
