@@ -3,7 +3,6 @@ module.exports = function (env) {
   var app = express();
   var db = require('./db')(env.get('db'));
   var bz = require('bz');
-  var request = require('request');
 
   // Autha
   var oauth2 = require('simple-oauth2')({
@@ -18,6 +17,9 @@ module.exports = function (env) {
     scope: 'user:email',
     state: '3(#0/!~'
   });
+
+  // bz
+  var bugzilla = env.get('OFFLINE') ? require('../offline/bz.js') : bz.createClient();
 
   app.use(express.logger('dev'));
   app.use(express.compress());
@@ -35,161 +37,7 @@ module.exports = function (env) {
   // Static files
   app.use(express.static('./app'));
 
-  // Auth routes
-
-  // Initial page redirecting to Github
-  app.get('/auth', function (req, res) {
-    res.redirect(authUri);
-  });
-
-  // Callback service parsing the authorization token and asking for the access token
-  app.get('/auth/callback', function (req, res) {
-    var code = req.query.code;
-
-    request.post({
-      url: 'https://github.com/login/oauth/access_token',
-      headers: {
-        'Accept': 'application/json'
-      },
-      form: {
-        client_id: env.get('GITHUB_CLIENT_ID'),
-        client_secret: env.get('GITHUB_CLIENT_SECRET'),
-        code: code
-      }
-    }, saveToken);
-
-    function saveToken(err, result, data) {
-      if (err) {
-        console.log('Access Token Error', error.message);
-      }
-      data = JSON.parse(data);
-      //req.session.token = oauth2.AccessToken.create(result);
-      console.log(data);
-      req.session.token = data.access_token;
-      res.redirect('/test');
-    }
-  });
-
-  function github(url, token, cb) {
-    request.get({
-      url: 'https://api.github.com/' + url,
-      headers: {
-        'Authorization': 'token ' + token,
-        'User-Agent': 'Sprinter'
-      }
-    }, function(err, resp, body) {
-      cb(err, body && JSON.parse(body));
-    });
-  }
-
-
-  // REMOVE
-  app.get('/test', function(req, res) {
-    console.log(req.session.token);
-    request.get({
-      url: 'https://api.github.com/user',
-      headers: {
-        'Authorization': 'token ' + req.session.token,
-        'User-Agent': 'Sprinter'
-      }
-    }, function(err, response, body) {
-      res.send(JSON.parse(body));
-    });
-  });
-
-  app.get('/user', function(req, res) {
-    request.get({
-      url: 'https://api.github.com/user',
-      headers: {
-        'Authorization': 'token ' + req.session.token,
-        'User-Agent': 'Sprinter'
-      }
-    }, function(err, response, body) {
-      res.send(JSON.parse(body));
-    });
-  });
-
-  app.get('/github/:details', function(req, res) {
-    var url = 'repos/' + req.query.repo + '/' + req.params.details;
-    github(url, req.session.token, function(err, data) {
-      if (err) {
-        return next(err);
-      }
-      res.send(data);
-    });
-  });
-
-  // Serve up virtual configuration "file"
-  app.get('/config.js', function (req, res) {
-    var config = env.get('ANGULAR');
-
-    config.csrf = req.csrfToken();
-    config.ga_id = env.get('GA_ID');
-
-    res.type('js');
-    res.send('window.angularConfig = ' + JSON.stringify(config) + ';');
-  });
-
-  require('./routes')(env, app, db);
-
-
-  // bz
-  var bugzilla = env.get('OFFLINE') ? require('../offline/bz.js') : bz.createClient();
-  app.get('/bug', function (req, res, next) {
-    bugzilla.searchBugs(req.query, function(err, bugs) {
-      if (err) {
-        return next(err);
-      }
-      var output = bugs.map(function(bug) {
-
-        // Check real name
-        if (!bug.assigned_to_detail.real_name) {
-          bug.assigned_to_detail.real_name = bug.assigned_to_detail.email.split('@')[0];
-        }
-        // Check if bugs which it depends on are resolved
-        if (!bug.resolution && bug.depends_on.length) {
-          bug.depends_on.forEach(function(blockerId) {
-            bugs.forEach(function(item) {
-              if (item.id === blockerId && !item.resolution) {
-                bug.blocked = true;
-              }
-            })
-          });
-        }
-        return bug;
-      });
-      res.send(output);
-    })
-  });
-  app.get('/flags', function (req, res, next) {
-    bugzilla.searchBugs({
-      'f1': 'requestees.login_name',
-      'v1': req.query.user,
-      'o1': 'substring'
-    }, function (err, bugs) {
-      if (err) {
-        return next(err);
-      }
-      var flags = [];
-      console.log(bugs);
-      bugs.forEach(function (bug) {
-        // Reviews don't show up for some reason...
-        if (!bug.flags.length) {
-          bug.flags.push({
-            creation_date: bug.last_change_time,
-            requestee: req.query.user,
-            setter: 'REVIEW',
-            status: '?'
-          });
-        }
-        bug.flags.forEach(function (flag) {
-          flag.bug = JSON.parse(JSON.stringify(bug));
-          flags.push(flag);
-        })
-      });
-      return res.send(flags);
-    });
-  });
+  require('./routes')(env, app, db, bugzilla, authUri);
 
   //Errors
   app.use(function errorHandler (err, req, res, next) {
