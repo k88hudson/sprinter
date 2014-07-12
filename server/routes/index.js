@@ -38,6 +38,11 @@ module.exports = function(env, app, dbInit, bugzilla, authUri) {
     }
   });
 
+  app.get('/auth/logout', function (req, res) {
+    req.session = {};
+    res.send(200);
+  });
+
   function github(url, token, cb) {
     request.get({
       url: 'https://api.github.com/' + url,
@@ -51,6 +56,9 @@ module.exports = function(env, app, dbInit, bugzilla, authUri) {
   }
 
   app.get('/user', function(req, res) {
+    if (!req.session.token) {
+      return res.send(null);
+    }
     request.get({
       url: 'https://api.github.com/user',
       headers: {
@@ -58,7 +66,9 @@ module.exports = function(env, app, dbInit, bugzilla, authUri) {
         'User-Agent': 'Sprinter'
       }
     }, function(err, response, body) {
-      res.send(JSON.parse(body));
+      var user = JSON.parse(body);
+      req.session.user = user;
+      res.send(user);
     });
   });
 
@@ -71,6 +81,25 @@ module.exports = function(env, app, dbInit, bugzilla, authUri) {
       res.send(data);
     });
   });
+
+  // Auth middleware
+
+  var whitelistOnly = function (req, res, next) {
+    var whitelist = env.get('WHITELIST');
+    var err;
+    if (!req.session.user) {
+      err = new Error('Please login through github.');
+      err.statusCode = 401;
+      return next(err);
+    }
+    else if (req.session.user.login && whitelist.indexOf(req.session.user.login.toLowerCase()) > -1) {
+      return next();
+    } else {
+      err = new Error('You are not authorized to complete this action. Contact k88hudson to be added to the whitelist');
+      err.statusCode = 403;
+      return next(err);
+    }
+  };
 
 
   /*********************************************************
@@ -144,6 +173,7 @@ module.exports = function(env, app, dbInit, bugzilla, authUri) {
 
     config.csrf = req.csrfToken();
     config.ga_id = env.get('GA_ID');
+    config.admins = env.get('WHITELIST');
 
     res.type('js');
     res.send('window.angularConfig = ' + JSON.stringify(config) + ';');
@@ -156,8 +186,8 @@ module.exports = function(env, app, dbInit, bugzilla, authUri) {
   app.get('/sprint/:id', db.get.id);
 
   // Protected routes
-  app.post('/sprint', db.post);
-  app.put('/sprint/:id', db.put);
-  app.delete('/sprint/:id', db.delete);
+  app.post('/sprint', whitelistOnly, db.post);
+  app.put('/sprint/:id', whitelistOnly, db.put);
+  app.delete('/sprint/:id', whitelistOnly, db.delete);
 
 };

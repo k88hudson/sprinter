@@ -3,14 +3,31 @@
 angular.module('myApp.controllers', [])
   .controller('sidebarCtrl', [
     '$scope',
+    '$http',
+    '$rootScope',
     'sprintService',
-    function ($scope, sprintService) {
-      $scope.$watch(function() {
-        return sprintService.sprints;
-      }, function(newVal) {
-        $scope.sprints = newVal;
+    'config',
+    function ($scope, $http, $rootScope, sprintService, config) {
+
+      $scope.canEdit = function canEdit(user) {
+        if (!user) {
+          return false;
+        }
+        return config.admins.indexOf(user.login.toLowerCase()) > -1;
+      };
+
+      $scope.$on('sprintRefresh', function (event, sprints) {
+        $scope.sprints = sprints;
       });
       sprintService.get();
+
+      $scope.logout = function logout() {
+        $http
+          .get('/auth/logout')
+          .success(function () {
+            $rootScope.user = null;
+          });
+      };
     }
   ])
   .controller('HomeCtrl', ['$scope', '$http', 'localStorageService',
@@ -85,8 +102,6 @@ angular.module('myApp.controllers', [])
          'year-format': "'yy'",
          'show-weeks': false
        };
-
-       $scope.sprints = sprintService.sprints;
 
        $scope.submit = function() {
 

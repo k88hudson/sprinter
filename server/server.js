@@ -4,7 +4,16 @@ module.exports = function (env) {
   var db = require('./db')(env.get('db'));
   var bz = require('bz');
 
-  // Autha
+  // Whitelist
+  if (env.get('ADMINS')) {
+    env.set('WHITELIST', env.get('ADMINS').split(/\s*,\s*/).map(function (username) {
+      return username.toLowerCase();
+    }));
+  } else {
+    env.set('WHITELIST', []);
+  }
+
+  // Auth
   var oauth2 = require('simple-oauth2')({
     clientID: env.get('GITHUB_CLIENT_ID'),
     clientSecret: env.get('GITHUB_CLIENT_SECRET'),
@@ -44,14 +53,15 @@ module.exports = function (env) {
     if (!err) {
       return next();
     }
-    // Log
-    console.log(err.stack || err);
 
-    if (err.statusCode === 401) {
-      delete req.session;
+    err.statusCode = err.statusCode || 500;
+
+    // Log
+    if (err.statusCode >= 500 || err.statusCode < 400) {
+      console.log(err.stack || err);
     }
 
-    res.send(500, {
+    res.send(err.statusCode, {
       error: err.message
     });
 

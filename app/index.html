@@ -21,11 +21,17 @@
   <div class="flex-bottom">
     <aside class="section-sidebar flex-inner" ng-controller="sidebarCtrl">
       <ul class="section-sidebar-nav nav nav-stacked">
-        <li class="hidden">
-          <a ng-hide="user" href="/auth"><span class="fa fa-fw fa-github"></span> Login</a>
-          <a ng-show="user"><span class="fa fa-fw fa-github"></span><!-- <img class="user-info-avatar" ng-src="{{user.avatar_url}}"> --> {{user.login}}</a>
-        </li>
         <li>
+          <a ng-hide="user" href="/auth">
+            <span class="fa fa-fw fa-github"></span> Login</a>
+          <a ng-show="user">
+            <img class="user-info-avatar" ng-src="{{user.avatar_url}}"> {{user.login}}</a>
+        </li>
+        <li ng-show="user">
+          <a href="#" ng-click="logout()">
+            <span class="fa fa-fw fa-sign-out"></span> Logout</a>
+        </li>
+        <li ng-show="canEdit(user)">
           <a href="/#/add"><span class="fa fa-fw fa-plus"></span> Add sprint</a>
         </li>
         <li>

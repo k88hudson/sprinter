@@ -13,6 +13,7 @@ angular.module('myApp.services', ['ngResource'])
           .get('/sprint')
           .success(function(data) {
             service.sprints = data;
+            $rootScope.$broadcast('sprintRefresh', service.sprints);
           });
       };
 

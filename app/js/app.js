@@ -50,15 +50,14 @@ angular.module('myApp', [
         window.scrollTo(0, 0);
       });
 
-      // $http
-      //   .get('/user')
-      //   .success(function (user) {
-      //     $rootScope.user = user;
-      //   });
-
-      // sprintService.refresh();
-
-
+      $http
+        .get('/user')
+        .success(function (user) {
+          $rootScope.user = user;
+        })
+        .error(function() {
+          $rootScope.user = null;
+        });
 
     }
   ]);
