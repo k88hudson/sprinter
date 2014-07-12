@@ -109,7 +109,7 @@ angular.module('myApp.controllers', [])
         $scope.new.dueDate = moment($scope.new.dueDate).hour(16).startOf('hour').toDate();
 
         $http
-          .post('/sprint', $scope.new)
+          .post('/api/sprint', $scope.new)
           .success(function(data) {
             reset();
             sprintService.get();
@@ -131,7 +131,7 @@ angular.module('myApp.controllers', [])
 
       $scope.archive = function() {
         $http
-          .put('/sprint/' + $routeParams.id, {
+          .put('/api/sprint/' + $routeParams.id, {
             archived: true
           })
           .success(function(data) {
@@ -140,7 +140,7 @@ angular.module('myApp.controllers', [])
       };
 
       $http
-        .get('/sprint/' + $routeParams.id)
+        .get('/api/sprint/' + $routeParams.id)
         .success(function(data) {
           $scope.m = data;
           $rootScope.title = data.title;

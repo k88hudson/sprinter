@@ -10,7 +10,7 @@ angular.module('myApp.services', ['ngResource'])
       service.sprints = [];
       service.get = function() {
         $http
-          .get('/sprint')
+          .get('/api/sprints')
           .success(function(data) {
             service.sprints = data;
             $rootScope.$broadcast('sprintRefresh', service.sprints);

@@ -47,11 +47,21 @@ angular.module('myApp', [
   .run([
     '$rootScope',
     '$http',
+    '$location',
     'sprintService',
-    function ($rootScope, $http, sprintService) {
+    function ($rootScope, $http, $location, sprintService) {
       // Jump to top of viewport when new views load
       $rootScope.$on('$locationChangeSuccess', function(event) {
         window.scrollTo(0, 0);
+
+        // Redirect old URLs
+        var hash = $location.hash();
+        var isSprint = hash && hash.match(/\/sprint\/(\d+)/);
+        if (isSprint) {
+          $location.hash('');
+          $location.path('/sprint/' + isSprint[1]);
+        }
+
       });
 
       $http

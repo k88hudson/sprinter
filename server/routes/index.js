@@ -211,12 +211,12 @@ module.exports = function(env, app, dbInit, bugzilla, authUri) {
   /*********************************************************
   * Sprinter db
   */
-  app.get('/sprint', db.get.all);
-  app.get('/sprint/:id', db.get.id);
+  app.get('/api/sprints', db.get.all);
+  app.get('/api/sprint/:id', db.get.id);
 
   // Protected routes
-  app.post('/sprint', whitelistOnly, db.post);
-  app.put('/sprint/:id', whitelistOnly, db.put);
-  app.delete('/sprint/:id', whitelistOnly, db.delete);
+  app.post('/api/sprint', whitelistOnly, db.post);
+  app.put('/api/sprint/:id', whitelistOnly, db.put);
+  app.delete('/api/sprint/:id', whitelistOnly, db.delete);
 
 };
