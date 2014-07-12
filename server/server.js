@@ -43,9 +43,7 @@ module.exports = function (env) {
   }));
   app.use(express.csrf());
 
-  // Static files
   app.use(express.static('./app'));
-
   require('./routes')(env, app, db, bugzilla, authUri);
 
   //Errors

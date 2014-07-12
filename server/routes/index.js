@@ -1,7 +1,20 @@
 module.exports = function(env, app, dbInit, bugzilla, authUri) {
-
+  var path = require('path');
   var db = require('./dbController')(dbInit);
   var request = require('request');
+
+  /*********************************************************
+  * Angular
+  */
+
+  var angularRoute = function (req, res) {
+    res.sendfile(path.resolve('./app/index.html'));
+  };
+
+  // Pages
+  app.get('/', angularRoute);
+  app.get('/add', angularRoute);
+  app.get('/sprint/:id', angularRoute);
 
   /*********************************************************
   * Auth
@@ -43,9 +56,10 @@ module.exports = function(env, app, dbInit, bugzilla, authUri) {
     res.send(200);
   });
 
-  function github(url, token, cb) {
+  function github(url, qs, token, cb) {
     request.get({
       url: 'https://api.github.com/' + url,
+      qs: qs,
       headers: {
         'Authorization': 'token ' + token,
         'User-Agent': 'Sprinter'
@@ -69,16 +83,6 @@ module.exports = function(env, app, dbInit, bugzilla, authUri) {
       var user = JSON.parse(body);
       req.session.user = user;
       res.send(user);
-    });
-  });
-
-  app.get('/github/:details', function(req, res) {
-    var url = 'repos/' + req.query.repo + '/' + req.params.details;
-    github(url, req.session.token, function(err, data) {
-      if (err) {
-        return next(err);
-      }
-      res.send(data);
     });
   });
 
@@ -159,6 +163,31 @@ module.exports = function(env, app, dbInit, bugzilla, authUri) {
         })
       });
       return res.send(flags);
+    });
+  });
+
+  /*********************************************************
+  * Github
+  */
+
+  app.get('/github/:details', function(req, res) {
+    var url = 'repos/' + req.query.repo + '/' + req.params.details;
+    github(url, {}, req.session.token, function(err, data) {
+      if (err) {
+        return next(err);
+      }
+      res.send(data);
+    });
+  });
+
+  ///repos/:owner/:repo/issues
+  app.get('/github/issues/:owner/:repo/milestone/:milestone', function(req, res) {
+    var url = 'repos/' + req.params.owner + '/' + req.params.repo + '/issues';
+    github(url, {milestone: req.params.milestone, state: 'all'}, req.session.token, function(err, data) {
+      if (err) {
+        return next(err);
+      }
+      res.send(data);
     });
   });
 

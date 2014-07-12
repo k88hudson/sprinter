@@ -17,21 +17,25 @@ angular.module('myApp', [
       $httpProvider.defaults.headers.common['X-CSRF-Token'] = config.csrf;
     }
   ])
-  .config(['$routeProvider',
-    function ($routeProvider) {
+  .config(['$routeProvider', '$locationProvider',
+    function ($routeProvider, $locationProvider) {
+
+      // html5mode
+      $locationProvider.html5Mode(true);
+      $locationProvider.hashPrefix('!');
 
       $routeProvider.when('/', {
-        templateUrl: 'views/home.html',
+        templateUrl: '/views/home.html',
         controller: 'HomeCtrl'
       });
 
       $routeProvider.when('/add', {
-        templateUrl: 'views/add.html',
+        templateUrl: '/views/add.html',
         controller: 'AddCtrl'
       });
 
       $routeProvider.when('/sprint/:id', {
-        templateUrl: 'views/sprint.html',
+        templateUrl: '/views/sprint.html',
         controller: 'SprintCtrl'
       });
 
