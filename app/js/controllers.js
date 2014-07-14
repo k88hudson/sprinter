@@ -21,6 +21,10 @@ angular.module('myApp.controllers', [])
       });
       sprintService.get();
 
+      $scope.login = function login() {
+        window.location = '/auth';
+      };
+
       $scope.logout = function logout() {
         $http
           .get('/auth/logout')

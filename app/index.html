@@ -22,7 +22,7 @@
     <aside class="section-sidebar flex-inner" ng-controller="sidebarCtrl">
       <ul class="section-sidebar-nav nav nav-stacked">
         <li>
-          <a ng-hide="user" href="/auth">
+          <a ng-hide="user" ng-click="login()">
             <span class="fa fa-fw fa-github"></span> Login</a>
           <a ng-show="user">
             <img class="user-info-avatar" ng-src="{{user.avatar_url}}"> {{user.login}}</a>
