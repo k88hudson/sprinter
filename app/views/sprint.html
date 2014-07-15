@@ -21,6 +21,9 @@
       <p>
         <form class="form-inline">
           <span class="space-right">Whiteboard: <code>{{m.whiteboard}}</code></span>
+          <button ng-click="getBugs()" title="Refresh bugs" class="btn btn-success">
+            <span class="fa fa-refresh"></span><span class="sr-only">Refresh bugs</span>
+          </button>
           <input placeholder="Filter whiteboard" class="form-control form-inline" ng-model="bugFilter.whiteboard">
           <input placeholder="Filter assigned" class="form-control form-inline" ng-model="bugFilter.assigned_to_detail.real_name">
         </form>

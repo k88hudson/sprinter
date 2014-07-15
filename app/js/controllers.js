@@ -244,25 +244,28 @@ angular.module('myApp.controllers', [])
         };
       });
 
-     $scope.$watch('m', function() {
-       if (!$scope.m.whiteboard) {
-         return;
-       }
-       $http({
-           method: 'GET',
-           url: '/bug',
-           params: {
-             product: 'Webmaker',
-             whiteboard: $scope.m.whiteboard,
-             limit: 200
-           }
-         })
-         .success(function (data) {
-           console.log(data);
-           $scope.bugs = data;
-         });
-     });
+      $scope.getBugs = function() {
+        $scope.bugs = [];
+        $http({
+            method: 'GET',
+            url: '/bug',
+            params: {
+              product: 'Webmaker',
+              whiteboard: $scope.m.whiteboard,
+              limit: 200
+            }
+          })
+          .success(function (data) {
+            $scope.bugs = data;
+          });
+      };
 
+      $scope.$watch('m', function() {
+        if (!$scope.m.whiteboard) {
+          return;
+        }
+         $scope.getBugs();
+       });
 
     }
   ]);
