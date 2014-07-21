@@ -34,6 +34,11 @@ angular.module('myApp', [
         controller: 'AddCtrl'
       });
 
+      $routeProvider.when('/archived', {
+        templateUrl: '/views/archived.html',
+        controller: 'ArchivedCtrl'
+      });
+
       $routeProvider.when('/sprint/:id', {
         templateUrl: '/views/sprint.html',
         controller: 'SprintCtrl'

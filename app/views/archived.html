@@ -1,0 +1,21 @@
+<header>
+  <div class="container">
+    <h1 class="feature-title">Archived sprints</h1>
+  </div>
+</header>
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <th>Title</th>
+      <th>Date Completed</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="sprint in sprints | orderBy:'-dueDate'">
+        <td><a href="/sprint/{{sprint.id}}">{{ sprint.title }}</a></td>
+        <td>{{ sprint.dueDate | date: 'MMM d, y' }}</td>
+      </tr>
+    </tbody>
+    </table>
+  </ul>
+</div>

@@ -8,7 +8,10 @@ module.exports = function(db) {
         var order = req.query.order || 'dueDate';
         var where = {};
 
-        if (!req.query.archived) {
+        if (req.query.archived) {
+          where.archived = true;
+        }
+        else if (!req.query.all) {
           where.archived = {
             // Only sprints that aren't archived
             ne: 1

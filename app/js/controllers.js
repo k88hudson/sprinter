@@ -33,17 +33,10 @@ angular.module('myApp.controllers', [])
     'config',
     function ($scope, $http, $rootScope, sprintService, config) {
 
-      $scope.canEdit = function canEdit(user) {
-        if (!user) {
-          return false;
-        }
-        return config.admins.indexOf(user.login.toLowerCase()) > -1;
-      };
-
       $scope.$on('sprintRefresh', function (event, sprints) {
         $scope.sprints = sprints;
       });
-      sprintService.get();
+      sprintService.refresh();
 
     }
   ])
@@ -129,7 +122,7 @@ angular.module('myApp.controllers', [])
           .post('/api/sprint', $scope.new)
           .success(function(data) {
             reset();
-            sprintService.get();
+            sprintService.refresh();
           })
           .error(function(err) {
             console.log(err);
@@ -280,5 +273,16 @@ angular.module('myApp.controllers', [])
          $scope.getBugs();
        });
 
+    }
+  ])
+  .controller('ArchivedCtrl', [
+    '$scope',
+    'sprintService',
+    function ($scope, sprintService) {
+      sprintService
+        .getArchived()
+        .success(function (sprints) {
+          $scope.sprints = sprints;
+        });
     }
   ]);
