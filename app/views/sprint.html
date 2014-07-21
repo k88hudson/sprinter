@@ -3,7 +3,7 @@
     <hgroup>
       <h1 class="feature-title">{{m.title}}<span ng-if="m.archived"> (Archived)</span></h1>
       <h3 class="feature-due-date">
-        Due {{m.dueDate | timeago}} <a href="{{newBugUrl()}}" class="btn btn-primary btn-add-bug" target="_blank">Add bug</a> <a class="btn btn-danger" href="#" ng-click="archive()">Archive</a>
+        Due {{m.dueDate | timeago}} <a href="{{newBugUrl()}}" class="btn btn-primary btn-add-bug" target="_blank">Add bug</a> <a ng-if="canEdit(user)" class="btn btn-danger" href="#" ng-click="archive()">Archive</a>
      </h3>
     </hgroup>
 

@@ -49,7 +49,8 @@ angular.module('myApp', [
     '$http',
     '$location',
     'sprintService',
-    function ($rootScope, $http, $location, sprintService) {
+    'config',
+    function ($rootScope, $http, $location, sprintService, config) {
       // Jump to top of viewport when new views load
       $rootScope.$on('$locationChangeSuccess', function(event) {
         window.scrollTo(0, 0);
@@ -63,6 +64,13 @@ angular.module('myApp', [
         }
 
       });
+
+      $rootScope.canEdit = function canEdit(user) {
+        if (!user) {
+          return false;
+        }
+        return config.admins.indexOf(user.login.toLowerCase()) > -1;
+      };
 
       $http
         .get('/user')
