@@ -17,7 +17,12 @@ angular.module('myApp.services', ['ngResource'])
           });
       };
       service.getArchived = function() {
-        return $http.get('/api/sprints', {params: {archived: true} });
+        return $http.get('/api/sprints', {
+          params: {
+            archived: true,
+            limit: 100
+          }
+        });
       };
 
       return service;
