@@ -9,17 +9,20 @@
   <link rel="icon" type="image/png" href="/img/favicon.ico">
 </head>
 <body class="flex-outer">
-  <div class="flex-top">
+  <div class="flex-top" ng-controller="topCtrl">
     <nav class="navbar navbar-default">
       <div class="container-flex">
         <div class="navbar-header">
+          <button class="navbar-toggle" ng-click="isOpen = !isOpen">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="fa fa-bars fa-lg"></span>
+          </button>
           <a class="navbar-brand">Sprinter</a>
         </div>
-        <div class="navbar-collapse">
-          <form ng-hide="user" class="navbar-form navbar-right">
-            <button class="btn btn-primary" ng-click="login()">
-              <span class="fa fa-fw fa-github"></span> Login
-            </button>
+        <div class="navbar-collapse" collapse="!isOpen">
+          <button ng-hide="user" class="btn navbar-right navbar-btn btn-primary" ng-click="login()">
+            <span class="fa fa-fw fa-github"></span> Login
+          </button>
           </form>
           <ul ng-show="user" class="nav navbar-nav navbar-right">
             <li class="dropdown" href="#">
@@ -28,12 +31,15 @@
                 <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
-                <li><a href="#"><span class="fa fa-fw fa-th-large"></span> My makes</a></li>
-                <li><a href="#"><span class="fa fa-fw fa-user"></span> My profile</a></li>
-                <li><a href="#"><span class="fa fa-fw fa-cog"></span> My settings</a></li>
+                <li><a href="/"><span class="fa fa-fw fa-th-large"></span> My dashboard</a></li>
                 <li class="divider"></li>
                 <li><a href="#" ng-click="logout()"><span class="fa fa-fw fa-sign-out"></span>Log out</a></li>
               </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right visible-xs">
+            <li ng-repeat="m in sprints">
+              <a href="/sprint/{{m.id}}">{{m.title}} ({{m.dueDate | date: 'MMM d'}})</a>
             </li>
           </ul>
         </div>
@@ -47,7 +53,7 @@
           <a href="/add"><span class="fa fa-fw fa-plus"></span> Add sprint</a>
         </li>
         <li>
-          <a href="/"><span class="fa fa-fw fa-warning"></span> My dashboard</a>
+          <a href="/"><span class="fa fa-fw fa-th-large"></span> My dashboard</a>
         </li>
         <li ng-repeat="m in sprints">
           <a href="/sprint/{{m.id}}">{{m.title}}<span class="sidebar-date">{{m.dueDate | date: 'MMM d'}}</span></a>

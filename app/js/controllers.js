@@ -1,6 +1,30 @@
 // Controllers ----------------------------------------------------------------
 
 angular.module('myApp.controllers', [])
+  .controller('topCtrl', [
+    '$scope',
+    '$rootScope',
+    '$http',
+    'sprintService',
+    'config',
+    function ($scope, $rootScope, $http, sprintService, config) {
+      $scope.login = function login() {
+        window.location = '/auth';
+      };
+
+      $scope.logout = function logout() {
+        $http
+          .get('/auth/logout')
+          .success(function () {
+            $rootScope.user = null;
+          });
+      };
+
+      $scope.$on('sprintRefresh', function (event, sprints) {
+        $scope.sprints = sprints;
+      });
+    }
+  ])
   .controller('sidebarCtrl', [
     '$scope',
     '$http',
@@ -21,17 +45,6 @@ angular.module('myApp.controllers', [])
       });
       sprintService.get();
 
-      $scope.login = function login() {
-        window.location = '/auth';
-      };
-
-      $scope.logout = function logout() {
-        $http
-          .get('/auth/logout')
-          .success(function () {
-            $rootScope.user = null;
-          });
-      };
     }
   ])
   .controller('HomeCtrl', ['$scope', '$http', 'localStorageService',
