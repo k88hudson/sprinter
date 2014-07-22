@@ -133,9 +133,9 @@ angular.module('myApp.controllers', [])
 
     }
   ])
-  .controller('SprintCtrl', ['$scope', '$http', '$rootScope', '$routeParams',
+  .controller('SprintCtrl', ['$scope', '$http', '$rootScope', '$routeParams', 'config',
 
-    function($scope, $http, $rootScope, $routeParams) {
+    function($scope, $http, $rootScope, $routeParams, config) {
 
       $scope.m = {};
 
@@ -157,7 +157,7 @@ angular.module('myApp.controllers', [])
         });
 
       $scope.newBugUrl = function() {
-        var link = 'https://bugzilla.mozilla.org/enter_bug.cgi?product=Webmaker' +
+        var link = 'https://bugzilla.mozilla.org/enter_bug.cgi?product=' + config.bzProduct +
         '&status_whiteboard=' + encodeURIComponent($scope.m.whiteboard);
 
         if ($scope.m.defaultComponent) {
@@ -256,7 +256,7 @@ angular.module('myApp.controllers', [])
             method: 'GET',
             url: '/bug',
             params: {
-              product: 'Webmaker',
+              product: config.bzProduct,
               whiteboard: $scope.m.whiteboard,
               limit: 200
             }

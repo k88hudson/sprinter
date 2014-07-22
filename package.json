@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "postinstall": "bower install && grunt build"
+    "postinstall": "bower install && grunt build",
+    "start": "node server/app.js"
   },
   "keywords": [],
   "author": "author",

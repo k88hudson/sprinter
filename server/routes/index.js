@@ -204,6 +204,7 @@ module.exports = function(env, app, dbInit, bugzilla, authUri) {
     config.csrf = req.csrfToken();
     config.ga_id = env.get('GA_ID');
     config.admins = env.get('WHITELIST');
+    config.bzProduct = env.get('BZ_PRODUCT');
 
     res.type('js');
     res.send('window.angularConfig = ' + JSON.stringify(config) + ';');
