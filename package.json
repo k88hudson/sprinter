@@ -30,7 +30,8 @@
     "grunt-contrib-watch": "0.5.3",
     "grunt-shell-spawn": "0.3.0",
     "grunt-cli": "~0.1.13",
-    "grunt-express-server": "^0.4.13"
+    "grunt-express-server": "^0.4.13",
+    "sqlite3": "^2.2.4"
   },
   "engines": {
     "node": ">=0.10"
