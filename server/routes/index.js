@@ -92,6 +92,9 @@ module.exports = function(env, app, dbInit, bugzilla, authUri) {
   var whitelistOnly = function (req, res, next) {
     var whitelist = env.get('WHITELIST');
     var err;
+    if (env.get('DEV')) {
+      return next();
+    }
     if (!req.session.user) {
       err = new Error('Please login through github.');
       err.statusCode = 401;
