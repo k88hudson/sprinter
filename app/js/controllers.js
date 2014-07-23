@@ -248,6 +248,9 @@ angular.module('myApp.controllers', [])
           resolved: bugsResolved,
           total: totalBugs
         };
+        if ($scope.complete.percentage === 100) {
+          $scope.showResolved = true;
+        }
       });
 
       $scope.getBugs = function() {

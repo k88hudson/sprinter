@@ -13,6 +13,14 @@
       </div>
     </div>
 
+    <form class="form-inline">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" ng-model="showResolved"> Show resolved bugs
+        </label>
+      </div>
+    </form>
+
   </header>
 
   <row>
@@ -28,6 +36,7 @@
           <input placeholder="Filter assigned" class="form-control form-inline" ng-model="bugFilter.assigned_to_detail.real_name">
         </form>
       </p>
+
       <div class="bugs-loading" ng-hide="bugs">
         <span class="fa fa-cog fa-spin"></span><span class="sr-only">Loading bugs</span>
       </div>
@@ -43,7 +52,7 @@
         <tbody>
           <tr ng-repeat="bug in bugs | orderBy:[orderDir + orderField, '-assignedTo'] | filter:bugFilter"
               ng-class="{'bug-resolved': bug.resolution, 'bug-blocked': bug.blocked}"
-              ng-hide="bug.resolution === 'DUPLICATE'">
+              ng-hide="bug.status === 'RESOLVED' && !showResolved || bug.resolution === 'DUPLICATE'">
             <td>{{bug.last_change_time | timeago}}</td>
             <td class="text-monospace"> <a href="https://bugzilla.mozilla.org/show_bug.cgi?id={{bug.id}}" target="_blank">#{{bug.id}}</a></td>
             <td>
