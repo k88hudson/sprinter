@@ -1,0 +1,14 @@
+<ul class="section-sidebar-nav nav nav-stacked">
+  <li ng-show="canEdit(user)">
+    <a href="/add"><span class="fa fa-fw fa-plus"></span> Add sprint</a>
+  </li>
+  <li>
+    <a href="/"><span class="fa fa-fw fa-th-large"></span> My dashboard</a>
+  </li>
+  <li ng-repeat="m in sprints">
+    <a href="/sprint/{{m.id}}">{{m.title}}<span class="sidebar-date">{{m.dueDate | date: 'MMM d'}}</span></a>
+  </li>
+  <li>
+    <a href="/archived"><span class="fa fa-fw fa-book"></span> Archived sprints</a>
+  </li>
+</ul>
