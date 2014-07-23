@@ -220,19 +220,29 @@ angular.module('myApp.controllers', [])
         return dir === '-' ? '' : '-';
       }
 
-      $scope.orderField = 'last_change_time';
       $scope.orderDir = desc;
+      $scope.orderByField = 'last_change_time';
+      $scope.orderByFields = ['status', $scope.orderDir + $scope.orderByField, '-assignedTo'];
 
       $scope.setOrderBy = function(field) {
-        if (field === $scope.orderField) {
+        $scope.orderByFields = [];
+        if (field === $scope.orderByField) {
           $scope.orderDir = switchDir($scope.orderDir);
         } else {
-          $scope.orderField = field;
-          if (field === 'last_change_time' || field === 'status') {
+          $scope.orderByField = field;
+          if (field === 'last_change_time') {
             $scope.orderDir = desc;
           } else {
             $scope.orderDir = asc;
           }
+        }
+
+        if (field !== 'status') {
+          $scope.orderByFields.push('status');
+        }
+        $scope.orderByFields.push($scope.orderDir + $scope.orderByField);
+        if ($scope.orderByField !== 'assignedTo') {
+          $scope.orderByFields.push('-assignedTo');
         }
       };
 
@@ -249,7 +259,7 @@ angular.module('myApp.controllers', [])
           total: totalBugs
         };
         if ($scope.complete.percentage === 100) {
-          $scope.showResolved = true;
+          $scope.hideResolved = false;
         }
       });
 

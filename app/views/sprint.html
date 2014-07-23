@@ -16,7 +16,7 @@
     <form class="form-inline">
       <div class="checkbox">
         <label>
-          <input type="checkbox" ng-model="showResolved"> Show resolved bugs
+          <input type="checkbox" ng-model="hideResolved"> Hide resolved bugs
         </label>
       </div>
     </form>
@@ -50,9 +50,9 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="bug in bugs | orderBy:[orderDir + orderField, '-assignedTo'] | filter:bugFilter"
+          <tr ng-repeat="bug in bugs | orderBy: orderByFields | filter:bugFilter"
               ng-class="{'bug-resolved': bug.resolution, 'bug-blocked': bug.blocked}"
-              ng-hide="bug.status === 'RESOLVED' && !showResolved || bug.resolution === 'DUPLICATE'">
+              ng-hide="bug.status === 'RESOLVED' && hideResolved || bug.resolution === 'DUPLICATE'">
             <td>{{bug.last_change_time | timeago}}</td>
             <td class="text-monospace"> <a href="https://bugzilla.mozilla.org/show_bug.cgi?id={{bug.id}}" target="_blank">#{{bug.id}}</a></td>
             <td>
