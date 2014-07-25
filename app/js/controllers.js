@@ -125,9 +125,9 @@ angular.module('myApp.controllers', [])
 
     }
   ])
-  .controller('SprintCtrl', ['$scope', '$http', '$rootScope', '$routeParams', 'sprintService', 'config',
+  .controller('SprintCtrl', ['$scope', '$http', '$rootScope', '$routeParams', 'sprintService', 'bzService',
 
-    function($scope, $http, $rootScope, $routeParams, sprintService, config) {
+    function($scope, $http, $rootScope, $routeParams, sprintService, bzService) {
 
       $scope.m = {};
       $scope.bugs = [];
@@ -226,26 +226,12 @@ angular.module('myApp.controllers', [])
 
       $scope.getBugs = function() {
         $scope.bugs = [];
-        $http({
-            method: 'GET',
-            url: '/bug',
-            params: {
-              product: config.bzProduct,
-              whiteboard: $scope.m.whiteboard,
-              limit: 200
-            }
-          })
-          .success(function (data) {
-            $scope.bugs = data;
-          });
+        bzService.getBugs($scope.m.whiteboard, function (data) {
+          $scope.bugs = data;
+        });
       };
 
-      $scope.$watch('m', function() {
-        if (!$scope.m.whiteboard) {
-          return;
-        }
-         $scope.getBugs();
-       });
+      $scope.getBugs();
 
     }
   ])

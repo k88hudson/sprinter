@@ -85,4 +85,24 @@ angular.module('myApp.services', ['ngResource'])
 
       return service;
     }
+  ])
+  .factory('bzService', [
+    '$http',
+    'config',
+    function ($http, config) {
+      var service = {};
+      service.getBugs = function(whiteboard, cb) {
+        $http({
+            method: 'GET',
+            url: '/bug',
+            params: {
+              product: config.bzProduct,
+              whiteboard: whiteboard,
+              limit: 200
+            }
+          })
+          .success(cb);
+      };
+      return service;
+    }
   ]);
