@@ -54,8 +54,9 @@ angular.module('myApp', [
     '$http',
     '$location',
     'sprintService',
+    'authService',
     'config',
-    function ($rootScope, $http, $location, sprintService, config) {
+    function ($rootScope, $http, $location, sprintService, authService, config) {
       // Jump to top of viewport when new views load
       $rootScope.$on('$locationChangeSuccess', function(event) {
         window.scrollTo(0, 0);
@@ -79,15 +80,6 @@ angular.module('myApp', [
         }
         return config.admins.indexOf(user.login.toLowerCase()) > -1;
       };
-
-      $http
-        .get('/user')
-        .success(function (user) {
-          $rootScope.user = user;
-        })
-        .error(function() {
-          $rootScope.user = null;
-        });
 
     }
   ]);

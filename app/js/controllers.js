@@ -6,20 +6,12 @@ angular.module('myApp.controllers', [])
     '$rootScope',
     '$http',
     'sprintService',
+    'authService',
     'config',
-    function ($scope, $rootScope, $http, sprintService, config) {
-      $scope.login = function login() {
-        window.location = '/auth';
-      };
-
-      $scope.logout = function logout() {
-        $http
-          .get('/auth/logout')
-          .success(function () {
-            $rootScope.user = null;
-          });
-      };
-
+    function ($scope, $rootScope, $http, sprintService, authService, config) {
+      authService.getUser();
+      $scope.login = authService.login;
+      $scope.logout = authService.logout;
       $scope.$on('sprintRefresh', function (event, sprints) {
         $scope.sprints = sprints;
       });
@@ -133,57 +125,26 @@ angular.module('myApp.controllers', [])
 
     }
   ])
-  .controller('SprintCtrl', ['$scope', '$http', '$rootScope', '$routeParams', 'config',
+  .controller('SprintCtrl', ['$scope', '$http', '$rootScope', '$routeParams', 'sprintService', 'config',
 
-    function($scope, $http, $rootScope, $routeParams, config) {
+    function($scope, $http, $rootScope, $routeParams, sprintService, config) {
 
       $scope.m = {};
+      $scope.bugs = [];
+      $scope.complete = {};
 
-      $scope.archive = function() {
-        $http
-          .put('/api/sprint/' + $routeParams.id, {
-            archived: true
-          })
-          .success(function(data) {
-            $scope.m = data;
-          });
-      };
+      $scope.archive = sprintService.archive($routeParams.id, function (data) {
+        $scope.m = data
+      });
 
-      $http
-        .get('/api/sprint/' + $routeParams.id)
+      sprintService
+        .getSprint($routeParams.id)
         .success(function(data) {
           $scope.m = data;
           $rootScope.title = data.title;
         });
 
-      $scope.newBugUrl = function() {
-        var link = 'https://bugzilla.mozilla.org/enter_bug.cgi?product=' + config.bzProduct +
-        '&status_whiteboard=' + encodeURIComponent($scope.m.whiteboard);
-
-        if ($scope.m.defaultComponent) {
-          link += ('&component=' + encodeURIComponent($scope.m.defaultComponent));
-        }
-        return link;
-      };
-
-      $scope.bugs = [];
-      $scope.complete = {};
-
-      $scope.userStories = [
-        {
-          userType: "vistor",
-          action: "understand what I can do on /events on first landing",
-          bugs: '42432, 23131'
-        },
-        {
-          userType: "vistor",
-          action: "understand what I can do on /events on first landing"
-        },
-        {
-          userType: "vistor",
-          action: "understand what I can do on /events on first landing"
-        }
-      ];
+      $scope.newBugUrl = sprintService.newBugUrl($scope.m.whiteboard, $scope.m.defaultComponent);
 
       $scope.fields = [
         {
