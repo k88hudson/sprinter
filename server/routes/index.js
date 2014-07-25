@@ -21,8 +21,6 @@ module.exports = function(env, app, dbInit, bugzilla, authUri) {
   /*********************************************************
   * Auth
   */
-
-  // Initial page redirecting to Github
   app.get('/auth', auth.login);
   app.get('/auth/callback', auth.callback);
   app.get('/auth/logout', auth.logout);
