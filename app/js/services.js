@@ -94,7 +94,7 @@ angular.module('myApp.services', ['ngResource'])
       service.getBugs = function(whiteboard, cb) {
         $http({
             method: 'GET',
-            url: '/bug',
+            url: '/bugs',
             params: {
               product: config.bzProduct,
               whiteboard: whiteboard,
