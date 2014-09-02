@@ -67,6 +67,9 @@ angular.module('myApp.controllers', [])
   .controller('AddCtrl', ['$scope', '$http', 'moment', 'sprintService',
     function($scope, $http, moment, sprintService) {
 
+      $scope.pageTitle = 'Add Sprint';
+      $scope.submitLabel = 'Create sprint';
+
       // The default dueDate should be today
 
       function reset() {
@@ -76,23 +79,6 @@ angular.module('myApp.controllers', [])
       }
 
       reset();
-
-      $scope.getRepoInfo = function() {
-        $http
-          .get('/github/milestones', {
-            params: {
-              repo: $scope.new.repo
-            }
-          })
-          .success(function (data) {
-            if (data.length) {
-              $scope.repoMilestones = data;
-            } else {
-              $scope.repoMilestones = [];
-            }
-            console.log($scope);
-          });
-      };
 
       $scope.open = function($event) {
         $event.preventDefault();
@@ -125,6 +111,49 @@ angular.module('myApp.controllers', [])
 
     }
   ])
+.controller('UpdateCtrl', ['$scope', '$http', '$routeParams', '$location', 'moment', 'sprintService',
+  function($scope, $http, $routeParams, $location, moment, sprintService) {
+
+    $scope.pageTitle = 'Edit Sprint';
+    $scope.submitLabel = 'Update sprint';
+
+    sprintService
+      .getSprint($routeParams.id)
+      .success(function (data) {
+        $scope.new = data;
+      });
+
+    $scope.cancel = function () {
+      $location.path('/sprint/' + $routeParams.id);
+    };
+
+    $scope.open = function($event) {
+      $event.preventDefault();
+      $event.stopPropagation();
+      $scope.opened = true;
+    };
+
+    $scope.dateOptions = {
+       'year-format': "'yy'",
+       'show-weeks': false
+     };
+
+     $scope.submit = function() {
+      $http
+        .put('/api/sprint/' + $routeParams.id, $scope.new)
+        .success(function(data) {
+          sprintService.refresh();
+          $location.path('/sprint/' + $routeParams.id);
+        })
+        .error(function(err) {
+          console.log(err);
+        });
+     };
+
+     $scope.activeTab = 'bugzilla';
+
+  }
+])
   .controller('SprintCtrl', ['$scope', '$http', '$rootScope', '$routeParams', 'sprintService', 'bzService',
 
     function($scope, $http, $rootScope, $routeParams, sprintService, bzService) {

@@ -35,6 +35,7 @@ module.exports = function(env, app, dbInit, bugzilla, authUri) {
   app.get('/', angularRoute);
   app.get('/add', angularRoute);
   app.get('/sprint/:id', angularRoute);
+  app.get('/sprint/:id/edit', angularRoute);
   app.get('/archived', angularRoute);
 
   /*********************************************************

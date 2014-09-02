@@ -30,7 +30,7 @@ angular.module('myApp', [
       });
 
       $routeProvider.when('/add', {
-        templateUrl: '/views/add.html',
+        templateUrl: '/views/add-update.html',
         controller: 'AddCtrl'
       });
 
@@ -42,6 +42,11 @@ angular.module('myApp', [
       $routeProvider.when('/sprint/:id', {
         templateUrl: '/views/sprint.html',
         controller: 'SprintCtrl'
+      });
+
+      $routeProvider.when('/sprint/:id/edit', {
+        templateUrl: '/views/add-update.html',
+        controller: 'UpdateCtrl'
       });
 
       $routeProvider.otherwise({
