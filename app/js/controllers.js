@@ -166,11 +166,20 @@ angular.module('myApp.controllers', [])
         $scope.m = data
       });
 
+
+      $scope.getBugs = function() {
+        $scope.bugs = [];
+        bzService.getBugs($scope.m.whiteboard, function (data) {
+          $scope.bugs = data;
+        });
+      };
+
       sprintService
         .getSprint($routeParams.id)
         .success(function(data) {
           $scope.m = data;
           $rootScope.title = data.title;
+          $scope.getBugs();
         });
 
       $scope.newBugUrl = sprintService.newBugUrl($scope.m.whiteboard, $scope.m.defaultComponent);
@@ -252,15 +261,6 @@ angular.module('myApp.controllers', [])
           $scope.hideResolved = false;
         }
       });
-
-      $scope.getBugs = function() {
-        $scope.bugs = [];
-        bzService.getBugs($scope.m.whiteboard, function (data) {
-          $scope.bugs = data;
-        });
-      };
-
-      $scope.getBugs();
 
     }
   ])
