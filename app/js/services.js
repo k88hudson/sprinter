@@ -28,16 +28,14 @@ angular.module('myApp.services', ['ngResource'])
           }
         });
       };
-      service.newBugUrl = function(whiteboard, defaultComponent) {
-        return function() {
-          var link = 'https://bugzilla.mozilla.org/enter_bug.cgi?product=' + config.bzProduct +
-          '&status_whiteboard=' + encodeURIComponent(whiteboard);
+      service.newBugUrl = function (whiteboard, defaultComponent) {
+        var link = 'https://bugzilla.mozilla.org/enter_bug.cgi?product=' + config.bzProduct +
+        '&status_whiteboard=' + encodeURIComponent(whiteboard);
 
-          if (defaultComponent) {
-            link += ('&component=' + encodeURIComponent(defaultComponent));
-          }
-          return link;
-        };
+        if (defaultComponent) {
+          link += ('&component=' + encodeURIComponent(defaultComponent));
+        }
+        return link;
       };
       service.archive = function(id, cb) {
         return function() {

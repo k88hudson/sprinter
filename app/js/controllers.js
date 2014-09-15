@@ -180,9 +180,8 @@ angular.module('myApp.controllers', [])
           $scope.m = data;
           $rootScope.title = data.title;
           $scope.getBugs();
+          $scope.newBugUrl = sprintService.newBugUrl(data.whiteboard, data.defaultComponent);
         });
-
-      $scope.newBugUrl = sprintService.newBugUrl($scope.m.whiteboard, $scope.m.defaultComponent);
 
       $scope.fields = [
         {
