@@ -3,7 +3,7 @@
     <a href="/add"><span class="fa fa-fw fa-plus"></span> Add sprint</a>
   </li>
   <li>
-    <a href="/"><span class="fa fa-fw fa-th-large"></span> My dashboard</a>
+    <a href="/"><span class="fa fa-fw fa-home"></span> Home</a>
   </li>
   <li ng-repeat="m in sprints">
     <a href="/sprint/{{m.id}}">{{m.title}}<span class="sidebar-date">{{m.dueDate | date: 'MMM d'}}</span></a>

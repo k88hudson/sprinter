@@ -1,41 +1,15 @@
 <header>
   <div class="container">
-    <h1 class="feature-title">My Dashboard</h1>
-    <div class="form-group">
-      <label class="sr-only" for="bugzilla_email">Bugzilla email</label>
-      <div class="row">
-        <div class="col-sm-6 col-sm-offset-3">
-          <div class="input-group">
-            <input class="form-control" name="bugzilla_email" ng-model="bugzillaEmail" placeholder="Your Bugzilla email">
-            <span class="input-group-btn">
-              <button class="btn btn-default" type="button" ng-click="onEmailChange(bugzillaEmail)">Update</button>
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
+    <hgroup>
+      <h1 class="feature-title">Sprinter</h1>
+    </hgroup>
   </div>
 </header>
 
 <div class="container">
+  <p class="lead">Sprinter lets you and your team track units of work on Bugzilla with whiteboard tags and a due date.</p>
+  <p class="lead">It's super alpha and maintained on my spare time, so keep that in mind when you're using it and <a href="https://github.com/k88hudson/sprinter/issues">file bugs</a> when you see them.</p>
   <div class="alert alert-success">
     <strong>Want to create sprints?</strong> Ask k88hudson on IRC to be added as an admin.
   </div>
-  <table class="table">
-    <th>Date</th>
-    <th>Requested by</th>
-    <th>Bug</th>
-    <th>Description</th>
-    <tr ng-repeat="flag in flags | orderBy:'-creation_date'">
-      <td>{{ flag.creation_date | timeago }}</td>
-      <td>
-        <a href="https://bugzilla.mozilla.org/show_bug.cgi?id={{flag.bug.id}}">
-          {{ flag.setter}}
-        </a>
-      </td>
-      <td>#{{flag.bug.id}}</td>
-      <td>{{flag.bug.summary}}</td>
-    </tr>
-    </table>
-  </ul>
 </div>
